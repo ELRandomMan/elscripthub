@@ -5,6 +5,6 @@
 - Murder Mystery 2
 
 ## __el script hub__:
-`loadstring(game:HttpGet("https://raw.githubusercontent.com/ELRandomMan/elscripthub/refs/heads/main/elscripthub.lua?token=GHSAT0AAAAAADBQO24YPSZRXMEWSY4ZANYMZ7MNP6Q"))()`
+`loadstring(game:HttpGet("https://raw.githubusercontent.com/ELRandomMan/elscripthub/refs/heads/main/elscripthub.lua"))()`
 
 *Script won't be perfect and may have bugs/may break...*
