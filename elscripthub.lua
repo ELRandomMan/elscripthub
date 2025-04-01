@@ -1932,21 +1932,24 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 				local speed = 0.15 * (plr.Character.Humanoid.WalkSpeed/16)
 				local add = Vector3.new(0,0,0)
 
-				if UIS:IsKeyDown(Enum.KeyCode.W) then add += Camera.CFrame.LookVector * speed end
-				if UIS:IsKeyDown(Enum.KeyCode.S) then add -= Camera.CFrame.LookVector * speed end
-				if UIS:IsKeyDown(Enum.KeyCode.D) then add += Camera.CFrame.RightVector * speed end
-				if UIS:IsKeyDown(Enum.KeyCode.A) then add -= Camera.CFrame.RightVector * speed end
-				if UIS:IsKeyDown(Enum.KeyCode.E) then add += Camera.CFrame.UpVector * speed end
-				if UIS:IsKeyDown(Enum.KeyCode.Q) then add -= Camera.CFrame.UpVector * speed end
 
-				rootPart.AssemblyLinearVelocity = Vector3.zero
-				rootPart.AssemblyAngularVelocity = Vector3.zero
-
-				currentCF += add
-				rootPart.CFrame = CFrame.lookAt(
-					currentCF.Position,
-					currentCF.Position + (Camera.CFrame.LookVector * 2)
-				)
+				local TextBox = UIS:GetFocusedTextBox()
+				if not TextBox then 
+					if UIS:IsKeyDown(Enum.KeyCode.W) then add += Camera.CFrame.LookVector * speed end
+					if UIS:IsKeyDown(Enum.KeyCode.S) then add -= Camera.CFrame.LookVector * speed end
+					if UIS:IsKeyDown(Enum.KeyCode.D) then add += Camera.CFrame.RightVector * speed end
+					if UIS:IsKeyDown(Enum.KeyCode.A) then add -= Camera.CFrame.RightVector * speed end
+					if UIS:IsKeyDown(Enum.KeyCode.E) then add += Camera.CFrame.UpVector * speed end
+					if UIS:IsKeyDown(Enum.KeyCode.Q) then add -= Camera.CFrame.UpVector * speed end
+				end
+					rootPart.AssemblyLinearVelocity = Vector3.zero
+					rootPart.AssemblyAngularVelocity = Vector3.zero
+	
+					currentCF += add
+					rootPart.CFrame = CFrame.lookAt(
+						currentCF.Position,
+						currentCF.Position + (Camera.CFrame.LookVector * 2)
+					)
 			end
 
 			hum.PlatformStand = false
@@ -1956,6 +1959,9 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 		if plr.Character.Humanoid.WalkSpeed <= 0 then
 			for i =1, 20 do
 				plr.Character.Humanoid.WalkSpeed = 30
+				plr.Character.Humanoid.JumpHeight = 7.2
+				plr.Character.Humanoid.JumpPower = 50
+				plr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping, true)
 				task.wait()
 			end
 		end
@@ -2403,6 +2409,8 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 	end)
 
 	UIS.InputBegan:Connect(function(key)
+		local TextBox = UIS:GetFocusedTextBox()
+		if TextBox then return end
 		if key.KeyCode == Enum.KeyCode.Z then
 			if Flying == false then
 				--hub.Fly.Text = "Fly: On"
@@ -2620,12 +2628,15 @@ if game.PlaceId == 142823291 then
 				local speed = 0.15 * (plr.Character.Humanoid.WalkSpeed/16)
 				local add = Vector3.new(0,0,0)
 
-				if UIS:IsKeyDown(Enum.KeyCode.W) then add += Camera.CFrame.LookVector * speed end
-				if UIS:IsKeyDown(Enum.KeyCode.S) then add -= Camera.CFrame.LookVector * speed end
-				if UIS:IsKeyDown(Enum.KeyCode.D) then add += Camera.CFrame.RightVector * speed end
-				if UIS:IsKeyDown(Enum.KeyCode.A) then add -= Camera.CFrame.RightVector * speed end
-				if UIS:IsKeyDown(Enum.KeyCode.E) then add += Camera.CFrame.UpVector * speed end
-				if UIS:IsKeyDown(Enum.KeyCode.Q) then add -= Camera.CFrame.UpVector * speed end
+				local TextBox = UIS:GetFocusedTextBox()
+				if not TextBox then 
+					if UIS:IsKeyDown(Enum.KeyCode.W) then add += Camera.CFrame.LookVector * speed end
+					if UIS:IsKeyDown(Enum.KeyCode.S) then add -= Camera.CFrame.LookVector * speed end
+					if UIS:IsKeyDown(Enum.KeyCode.D) then add += Camera.CFrame.RightVector * speed end
+					if UIS:IsKeyDown(Enum.KeyCode.A) then add -= Camera.CFrame.RightVector * speed end
+					if UIS:IsKeyDown(Enum.KeyCode.E) then add += Camera.CFrame.UpVector * speed end
+					if UIS:IsKeyDown(Enum.KeyCode.Q) then add -= Camera.CFrame.UpVector * speed end
+				end
 
 				rootPart.AssemblyLinearVelocity = Vector3.zero
 				rootPart.AssemblyAngularVelocity = Vector3.zero
@@ -2655,6 +2666,8 @@ if game.PlaceId == 142823291 then
 	end)
 
 	UIS.InputBegan:Connect(function(key)
+		local TextBox = UIS:GetFocusedTextBox()
+		if TextBox then return end
 		if key.KeyCode == Enum.KeyCode.Z then
 			if Flying == false then
 				--hub.Fly.Text = "Fly: On"
