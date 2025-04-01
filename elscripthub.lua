@@ -1088,6 +1088,7 @@ local function setGuiPropertiesOnLoad()
 	
 	hub.elGui.Parent = game.Players.LocalPlayer.PlayerGui
 end
+setGuiPropertiesOnLoad()
 
 task.spawn(function()
     for i,v in hub.elGui:GetDescendants() do
