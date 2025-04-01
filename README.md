@@ -1,12 +1,3 @@
-# elscripthub
-
-
-
-
-
-CODE: 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Devi-fy/prisonlife-gui/main/source.lua"))()
-
 # Hello! Welcome to **el script hub**
 ## This is new, my script hub 👽
 ### Currently supported games:
