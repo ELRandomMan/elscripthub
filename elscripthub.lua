@@ -79,46 +79,49 @@ local hub =
 	Noclip = Instance.new("TextButton"),
 	UICorner_22 = Instance.new("UICorner"),
 	UIStroke_10 = Instance.new("UIStroke"),
+	AntiFling = Instance.new("TextButton"),
+	UICorner_23 = Instance.new("UICorner"),
+	UIStroke_11 = Instance.new("UIStroke"),
 	OtherTab = Instance.new("Frame"),
 	Title_3 = Instance.new("TextLabel"),
 	Touch = Instance.new("TextButton"),
-	UICorner_23 = Instance.new("UICorner"),
-	UIStroke_11 = Instance.new("UIStroke"),
-	PlayerBox_1 = Instance.new("TextBox"),
 	UICorner_24 = Instance.new("UICorner"),
+	UIStroke_12 = Instance.new("UIStroke"),
+	PlayerBox_1 = Instance.new("TextBox"),
+	UICorner_25 = Instance.new("UICorner"),
 	MM2 = Instance.new("Frame"),
 	MainTab = Instance.new("Frame"),
 	Title_4 = Instance.new("TextLabel"),
 	HumanoidTab_1 = Instance.new("Frame"),
 	Title_5 = Instance.new("TextLabel"),
 	Spin_1 = Instance.new("TextButton"),
-	UICorner_25 = Instance.new("UICorner"),
-	UIStroke_12 = Instance.new("UIStroke"),
-	Fling_1 = Instance.new("TextButton"),
 	UICorner_26 = Instance.new("UICorner"),
 	UIStroke_13 = Instance.new("UIStroke"),
-	Fly_1 = Instance.new("TextButton"),
+	Fling_1 = Instance.new("TextButton"),
 	UICorner_27 = Instance.new("UICorner"),
 	UIStroke_14 = Instance.new("UIStroke"),
-	WalkSpeedBox_1 = Instance.new("TextBox"),
+	Fly_1 = Instance.new("TextButton"),
 	UICorner_28 = Instance.new("UICorner"),
+	UIStroke_15 = Instance.new("UIStroke"),
+	WalkSpeedBox_1 = Instance.new("TextBox"),
+	UICorner_29 = Instance.new("UICorner"),
 	WalkSpeedSliderGroup_1 = Instance.new("CanvasGroup"),
 	WalkSpeedSlider_1 = Instance.new("Frame"),
-	UICorner_29 = Instance.new("UICorner"),
-	Noclip_1 = Instance.new("TextButton"),
 	UICorner_30 = Instance.new("UICorner"),
-	UIStroke_15 = Instance.new("UIStroke"),
+	Noclip_1 = Instance.new("TextButton"),
+	UICorner_31 = Instance.new("UICorner"),
+	UIStroke_16 = Instance.new("UIStroke"),
 	TeleportsTab = Instance.new("Frame"),
 	Title_6 = Instance.new("TextLabel"),
 	Lobby = Instance.new("TextButton"),
-	UICorner_31 = Instance.new("UICorner"),
-	UIStroke_16 = Instance.new("UIStroke"),
-	PlayerBoxMM2 = Instance.new("TextBox"),
 	UICorner_32 = Instance.new("UICorner"),
-	ToPlayer = Instance.new("TextButton"),
-	UICorner_33 = Instance.new("UICorner"),
 	UIStroke_17 = Instance.new("UIStroke"),
-	UICorner_34 = Instance.new("UICorner")
+	PlayerBoxMM2 = Instance.new("TextBox"),
+	UICorner_33 = Instance.new("UICorner"),
+	ToPlayer = Instance.new("TextButton"),
+	UICorner_34 = Instance.new("UICorner"),
+	UIStroke_18 = Instance.new("UIStroke"),
+	UICorner_35 = Instance.new("UICorner")
 }
 
 local function setGuiPropertiesOnLoad()
@@ -128,9 +131,9 @@ local function setGuiPropertiesOnLoad()
 	hub.elGui.ScreenInsets = Enum.ScreenInsets.DeviceSafeInsets
 	hub.elGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	hub.elGui.Parent = game:GetService("StarterGui")
-	
+
 	hub.LocalScript.Parent = hub.elGui
-	
+
 	hub.CanvasGroup.BorderSizePixel = 0
 	hub.CanvasGroup.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	hub.CanvasGroup.Size = UDim2.new(0.234391, 0, 0.368, 0)
@@ -138,7 +141,7 @@ local function setGuiPropertiesOnLoad()
 	hub.CanvasGroup.Position = UDim2.new(0.2, 0, 0.4, 0)
 	hub.CanvasGroup.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	hub.CanvasGroup.Parent = hub.elGui
-	
+
 	hub.Container.BorderSizePixel = 0
 	hub.Container.BackgroundColor3 = Color3.fromRGB(47, 50, 56)
 	hub.Container.Size = UDim2.new(0, 600, 0, 29)
@@ -146,7 +149,7 @@ local function setGuiPropertiesOnLoad()
 	hub.Container.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	hub.Container.Name = "Container"
 	hub.Container.Parent = hub.CanvasGroup
-	
+
 	hub.WindowBar.BorderSizePixel = 0
 	hub.WindowBar.BackgroundColor3 = Color3.fromRGB(33, 35, 38)
 	hub.WindowBar.Size = UDim2.new(0, 600, 0, 30)
@@ -154,7 +157,7 @@ local function setGuiPropertiesOnLoad()
 	hub.WindowBar.Name = "WindowBar"
 	hub.WindowBar.ZIndex = 2
 	hub.WindowBar.Parent = hub.Container
-	
+
 	hub.Title.TextWrapped = true
 	hub.Title.BorderSizePixel = 0
 	hub.Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -167,7 +170,7 @@ local function setGuiPropertiesOnLoad()
 	hub.Title.Text = "el Gui"
 	hub.Title.BackgroundTransparency = 1
 	hub.Title.Parent = hub.WindowBar
-	
+
 	hub.MinimizeButton.ImageColor3 = Color3.fromRGB(183, 221, 255)
 	hub.MinimizeButton.BorderSizePixel = 0
 	hub.MinimizeButton.Position = UDim2.new(0.9, 0, 0, 0)
@@ -179,7 +182,7 @@ local function setGuiPropertiesOnLoad()
 	hub.MinimizeButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	hub.MinimizeButton.BackgroundTransparency = 1
 	hub.MinimizeButton.Parent = hub.WindowBar
-	
+
 	hub.DeleteButton.ImageColor3 = Color3.fromRGB(255, 65, 65)
 	hub.DeleteButton.BorderSizePixel = 0
 	hub.DeleteButton.Position = UDim2.new(0.95, 0, 0, 0)
@@ -191,7 +194,7 @@ local function setGuiPropertiesOnLoad()
 	hub.DeleteButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	hub.DeleteButton.BackgroundTransparency = 1
 	hub.DeleteButton.Parent = hub.WindowBar
-	
+
 	hub.Sidebar.BorderSizePixel = 0
 	hub.Sidebar.BackgroundColor3 = Color3.fromRGB(39, 42, 47)
 	hub.Sidebar.Size = UDim2.new(0, 150, 0, 499)
@@ -199,7 +202,7 @@ local function setGuiPropertiesOnLoad()
 	hub.Sidebar.Name = "Sidebar"
 	hub.Sidebar.Position = UDim2.new(0, 0, 0.0565057, 0)
 	hub.Sidebar.Parent = hub.Container
-	
+
 	hub.HomeButton.BorderSizePixel = 0
 	hub.HomeButton.Position = UDim2.new(0.5, 0, 0.014, 0)
 	hub.HomeButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -213,9 +216,9 @@ local function setGuiPropertiesOnLoad()
 	hub.HomeButton.Text = "Home"
 	hub.HomeButton.BackgroundTransparency = 0.9
 	hub.HomeButton.Parent = hub.Sidebar
-	
+
 	hub.UICorner.Parent = hub.HomeButton
-	
+
 	hub.LineDecor.BorderSizePixel = 0
 	hub.LineDecor.BackgroundColor3 = Color3.fromRGB(43, 46, 52)
 	hub.LineDecor.Size = UDim2.new(0, 150, 0, 5)
@@ -223,7 +226,7 @@ local function setGuiPropertiesOnLoad()
 	hub.LineDecor.Name = "LineDecor"
 	hub.LineDecor.Position = UDim2.new(0, 0, 0.116, 0)
 	hub.LineDecor.Parent = hub.Sidebar
-	
+
 	hub.PrisonLifeSidebar.BorderSizePixel = 0
 	hub.PrisonLifeSidebar.BackgroundColor3 = Color3.fromRGB(39, 42, 47)
 	hub.PrisonLifeSidebar.Size = UDim2.new(0, 150, 0, 437)
@@ -232,7 +235,7 @@ local function setGuiPropertiesOnLoad()
 	hub.PrisonLifeSidebar.Name = "PrisonLifeSidebar"
 	hub.PrisonLifeSidebar.Position = UDim2.new(0, 0, 0.126, 0)
 	hub.PrisonLifeSidebar.Parent = hub.Sidebar
-	
+
 	hub.EventButton.BorderSizePixel = 0
 	hub.EventButton.Position = UDim2.new(0.5, 0, 0.014, 0)
 	hub.EventButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -246,9 +249,9 @@ local function setGuiPropertiesOnLoad()
 	hub.EventButton.Text = "💀"
 	hub.EventButton.BackgroundTransparency = 0.9
 	hub.EventButton.Parent = hub.PrisonLifeSidebar
-	
+
 	hub.UICorner_1.Parent = hub.EventButton
-	
+
 	hub.Other.BorderSizePixel = 0
 	hub.Other.Position = UDim2.new(0.5, 0, 0.246, 0)
 	hub.Other.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -262,9 +265,9 @@ local function setGuiPropertiesOnLoad()
 	hub.Other.Text = "Other"
 	hub.Other.BackgroundTransparency = 0.9
 	hub.Other.Parent = hub.PrisonLifeSidebar
-	
+
 	hub.UICorner_2.Parent = hub.Other
-	
+
 	hub.HumanoidButton.BorderSizePixel = 0
 	hub.HumanoidButton.Position = UDim2.new(0.5, 0, 0.13, 0)
 	hub.HumanoidButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -278,18 +281,18 @@ local function setGuiPropertiesOnLoad()
 	hub.HumanoidButton.Text = "Humanoid"
 	hub.HumanoidButton.BackgroundTransparency = 0.9
 	hub.HumanoidButton.Parent = hub.PrisonLifeSidebar
-	
+
 	hub.UICorner_3.Parent = hub.HumanoidButton
-	
+
 	hub.MM2Sidebar.BorderSizePixel = 0
 	hub.MM2Sidebar.BackgroundColor3 = Color3.fromRGB(39, 42, 47)
 	hub.MM2Sidebar.Size = UDim2.new(0, 150, 0, 437)
 	hub.MM2Sidebar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	hub.MM2Sidebar.Visible = false
 	hub.MM2Sidebar.Name = "MM2Sidebar"
 	hub.MM2Sidebar.Position = UDim2.new(0, 0, 0.126, 0)
 	hub.MM2Sidebar.Parent = hub.Sidebar
-	hub.MM2Sidebar.Visible = false
-	
+
 	hub.MainButton.BorderSizePixel = 0
 	hub.MainButton.Position = UDim2.new(0.5, 0, 0.014, 0)
 	hub.MainButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -303,9 +306,9 @@ local function setGuiPropertiesOnLoad()
 	hub.MainButton.Text = "Main"
 	hub.MainButton.BackgroundTransparency = 0.9
 	hub.MainButton.Parent = hub.MM2Sidebar
-	
+
 	hub.UICorner_4.Parent = hub.MainButton
-	
+
 	hub.TeleportsButton.BorderSizePixel = 0
 	hub.TeleportsButton.Position = UDim2.new(0.5, 0, 0.246, 0)
 	hub.TeleportsButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -319,9 +322,9 @@ local function setGuiPropertiesOnLoad()
 	hub.TeleportsButton.Text = "Teleports"
 	hub.TeleportsButton.BackgroundTransparency = 0.9
 	hub.TeleportsButton.Parent = hub.MM2Sidebar
-	
+
 	hub.UICorner_5.Parent = hub.TeleportsButton
-	
+
 	hub.HumanoidButton_1.BorderSizePixel = 0
 	hub.HumanoidButton_1.Position = UDim2.new(0.5, 0, 0.13, 0)
 	hub.HumanoidButton_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -335,19 +338,18 @@ local function setGuiPropertiesOnLoad()
 	hub.HumanoidButton_1.Text = "Humanoid"
 	hub.HumanoidButton_1.BackgroundTransparency = 0.9
 	hub.HumanoidButton_1.Parent = hub.MM2Sidebar
-	
+
 	hub.UICorner_6.Parent = hub.HumanoidButton_1
-	
+
 	hub.Home.BorderSizePixel = 0
 	hub.Home.BackgroundColor3 = Color3.fromRGB(39, 42, 47)
 	hub.Home.Size = UDim2.new(0, 450, 0, 500)
 	hub.Home.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	hub.Home.BackgroundTransparency = 1
-	hub.Home.Visible = true
 	hub.Home.Name = "Home"
 	hub.Home.Position = UDim2.new(0.249983, 0, 0.0547252, 0)
 	hub.Home.Parent = hub.Container
-	
+
 	hub.PlayerIcon.BorderSizePixel = 0
 	hub.PlayerIcon.BackgroundColor3 = Color3.fromRGB(54, 59, 66)
 	hub.PlayerIcon.Position = UDim2.new(0.0444444, 0, 0.04, 0)
@@ -357,10 +359,10 @@ local function setGuiPropertiesOnLoad()
 	hub.PlayerIcon.ImageContent = Content.fromUri("rbxasset://textures/ui/GuiImagePlaceholder.png")
 	hub.PlayerIcon.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	hub.PlayerIcon.Parent = hub.Home
-	
+
 	hub.UICorner_7.CornerRadius = UDim.new(1, 0)
 	hub.UICorner_7.Parent = hub.PlayerIcon
-	
+
 	hub.Welcome.TextWrapped = true
 	hub.Welcome.BorderSizePixel = 0
 	hub.Welcome.TextScaled = true
@@ -375,7 +377,7 @@ local function setGuiPropertiesOnLoad()
 	hub.Welcome.Text = "Welcome, USERNAME!"
 	hub.Welcome.BackgroundTransparency = 1
 	hub.Welcome.Parent = hub.Home
-	
+
 	hub.CurrentGame.TextWrapped = true
 	hub.CurrentGame.BorderSizePixel = 0
 	hub.CurrentGame.RichText = true
@@ -391,7 +393,7 @@ local function setGuiPropertiesOnLoad()
 	hub.CurrentGame.BackgroundTransparency = 1
 	hub.CurrentGame.TextXAlignment = Enum.TextXAlignment.Left
 	hub.CurrentGame.Parent = hub.Home
-	
+
 	hub.PrisonLife.BorderSizePixel = 0
 	hub.PrisonLife.BackgroundColor3 = Color3.fromRGB(39, 42, 47)
 	hub.PrisonLife.Size = UDim2.new(0, 450, 0, 500)
@@ -401,7 +403,7 @@ local function setGuiPropertiesOnLoad()
 	hub.PrisonLife.Name = "PrisonLife"
 	hub.PrisonLife.Position = UDim2.new(0.249983, 0, 0.0547252, 0)
 	hub.PrisonLife.Parent = hub.Container
-	
+
 	hub.EventTab.BorderSizePixel = 0
 	hub.EventTab.BackgroundColor3 = Color3.fromRGB(39, 42, 47)
 	hub.EventTab.Size = UDim2.new(0, 450, 0, 500)
@@ -410,7 +412,7 @@ local function setGuiPropertiesOnLoad()
 	hub.EventTab.Visible = false
 	hub.EventTab.Name = "EventTab"
 	hub.EventTab.Parent = hub.PrisonLife
-	
+
 	hub.Title_1.TextWrapped = true
 	hub.Title_1.BorderSizePixel = 0
 	hub.Title_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -424,7 +426,7 @@ local function setGuiPropertiesOnLoad()
 	hub.Title_1.Text = "Events Tab 👽 "
 	hub.Title_1.BackgroundTransparency = 1
 	hub.Title_1.Parent = hub.EventTab
-	
+
 	hub.KillAura.TextWrapped = true
 	hub.KillAura.BorderSizePixel = 0
 	hub.KillAura.Position = UDim2.new(0.195556, 0, 0.86, 0)
@@ -439,14 +441,14 @@ local function setGuiPropertiesOnLoad()
 	hub.KillAura.Text = "Kill Aura"
 	hub.KillAura.BackgroundTransparency = 0.9
 	hub.KillAura.Parent = hub.EventTab
-	
+
 	hub.UICorner_8.Parent = hub.KillAura
-	
+
 	hub.UIStroke.Color = Color3.fromRGB(81, 88, 98)
 	hub.UIStroke.Thickness = 2
 	hub.UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	hub.UIStroke.Parent = hub.KillAura
-	
+
 	hub.LoopKill.BorderSizePixel = 0
 	hub.LoopKill.Position = UDim2.new(0.5, 0, 0.86, 0)
 	hub.LoopKill.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -460,14 +462,14 @@ local function setGuiPropertiesOnLoad()
 	hub.LoopKill.Text = "Loop Kill"
 	hub.LoopKill.BackgroundTransparency = 0.9
 	hub.LoopKill.Parent = hub.EventTab
-	
+
 	hub.UICorner_9.Parent = hub.LoopKill
-	
+
 	hub.UIStroke_1.Color = Color3.fromRGB(81, 88, 98)
 	hub.UIStroke_1.Thickness = 2
 	hub.UIStroke_1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	hub.UIStroke_1.Parent = hub.LoopKill
-	
+
 	hub.Arrest.BorderSizePixel = 0
 	hub.Arrest.Position = UDim2.new(0.804, 0, 0.86, 0)
 	hub.Arrest.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -481,14 +483,14 @@ local function setGuiPropertiesOnLoad()
 	hub.Arrest.Text = "Arrest"
 	hub.Arrest.BackgroundTransparency = 0.9
 	hub.Arrest.Parent = hub.EventTab
-	
+
 	hub.UICorner_10.Parent = hub.Arrest
-	
+
 	hub.UIStroke_2.Color = Color3.fromRGB(81, 88, 98)
 	hub.UIStroke_2.Thickness = 2
 	hub.UIStroke_2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	hub.UIStroke_2.Parent = hub.Arrest
-	
+
 	hub.PlayerBox.TextWrapped = true
 	hub.PlayerBox.BorderSizePixel = 0
 	hub.PlayerBox.PlaceholderColor3 = Color3.fromRGB(71, 75, 83)
@@ -504,9 +506,9 @@ local function setGuiPropertiesOnLoad()
 	hub.PlayerBox.Text = ""
 	hub.PlayerBox.Name = "PlayerBox"
 	hub.PlayerBox.Parent = hub.EventTab
-	
+
 	hub.UICorner_11.Parent = hub.PlayerBox
-	
+
 	hub.GetGuns.BorderSizePixel = 0
 	hub.GetGuns.Position = UDim2.new(0.802222, 0, 0.75, 0)
 	hub.GetGuns.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -520,14 +522,14 @@ local function setGuiPropertiesOnLoad()
 	hub.GetGuns.Text = "Get Guns"
 	hub.GetGuns.BackgroundTransparency = 0.9
 	hub.GetGuns.Parent = hub.EventTab
-	
+
 	hub.UICorner_12.Parent = hub.GetGuns
-	
+
 	hub.UIStroke_3.Color = Color3.fromRGB(81, 88, 98)
 	hub.UIStroke_3.Thickness = 2
 	hub.UIStroke_3.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	hub.UIStroke_3.Parent = hub.GetGuns
-	
+
 	hub.KillPlayer.BorderSizePixel = 0
 	hub.KillPlayer.Position = UDim2.new(0.5, 0, 0.75, 0)
 	hub.KillPlayer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -541,14 +543,14 @@ local function setGuiPropertiesOnLoad()
 	hub.KillPlayer.Text = "Kill Player"
 	hub.KillPlayer.BackgroundTransparency = 0.9
 	hub.KillPlayer.Parent = hub.EventTab
-	
+
 	hub.UICorner_13.Parent = hub.KillPlayer
-	
+
 	hub.UIStroke_4.Color = Color3.fromRGB(81, 88, 98)
 	hub.UIStroke_4.Thickness = 2
 	hub.UIStroke_4.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	hub.UIStroke_4.Parent = hub.KillPlayer
-	
+
 	hub.AddPlayer.BorderSizePixel = 0
 	hub.AddPlayer.Position = UDim2.new(0.195556, 0, 0.346, 0)
 	hub.AddPlayer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -562,14 +564,14 @@ local function setGuiPropertiesOnLoad()
 	hub.AddPlayer.Text = "[+] Player"
 	hub.AddPlayer.BackgroundTransparency = 0.9
 	hub.AddPlayer.Parent = hub.EventTab
-	
+
 	hub.UICorner_14.Parent = hub.AddPlayer
-	
+
 	hub.UIStroke_5.Color = Color3.fromRGB(81, 88, 98)
 	hub.UIStroke_5.Thickness = 2
 	hub.UIStroke_5.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	hub.UIStroke_5.Parent = hub.AddPlayer
-	
+
 	hub.RemovePlayer.BorderSizePixel = 0
 	hub.RemovePlayer.Position = UDim2.new(0.5, 0, 0.346, 0)
 	hub.RemovePlayer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -583,14 +585,14 @@ local function setGuiPropertiesOnLoad()
 	hub.RemovePlayer.Text = "[-] Player"
 	hub.RemovePlayer.BackgroundTransparency = 0.9
 	hub.RemovePlayer.Parent = hub.EventTab
-	
+
 	hub.UICorner_15.Parent = hub.RemovePlayer
-	
+
 	hub.UIStroke_6.Color = Color3.fromRGB(81, 88, 98)
 	hub.UIStroke_6.Thickness = 2
 	hub.UIStroke_6.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	hub.UIStroke_6.Parent = hub.RemovePlayer
-	
+
 	hub.PlayerInfo.TextWrapped = true
 	hub.PlayerInfo.BorderSizePixel = 0
 	hub.PlayerInfo.TextEditable = false
@@ -609,9 +611,9 @@ local function setGuiPropertiesOnLoad()
 	hub.PlayerInfo.Selectable = false
 	hub.PlayerInfo.Name = "PlayerInfo"
 	hub.PlayerInfo.Parent = hub.EventTab
-	
+
 	hub.UICorner_16.Parent = hub.PlayerInfo
-	
+
 	hub.HumanoidTab.BorderSizePixel = 0
 	hub.HumanoidTab.BackgroundColor3 = Color3.fromRGB(39, 42, 47)
 	hub.HumanoidTab.Size = UDim2.new(0, 450, 0, 500)
@@ -620,7 +622,7 @@ local function setGuiPropertiesOnLoad()
 	hub.HumanoidTab.Visible = false
 	hub.HumanoidTab.Name = "HumanoidTab"
 	hub.HumanoidTab.Parent = hub.PrisonLife
-	
+
 	hub.Title_2.TextWrapped = true
 	hub.Title_2.BorderSizePixel = 0
 	hub.Title_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -634,7 +636,7 @@ local function setGuiPropertiesOnLoad()
 	hub.Title_2.Text = "Humanoid Events"
 	hub.Title_2.BackgroundTransparency = 1
 	hub.Title_2.Parent = hub.HumanoidTab
-	
+
 	hub.Spin.TextWrapped = true
 	hub.Spin.BorderSizePixel = 0
 	hub.Spin.Position = UDim2.new(0.195556, 0, 0.86, 0)
@@ -649,14 +651,14 @@ local function setGuiPropertiesOnLoad()
 	hub.Spin.Text = "Spin"
 	hub.Spin.BackgroundTransparency = 0.9
 	hub.Spin.Parent = hub.HumanoidTab
-	
+
 	hub.UICorner_17.Parent = hub.Spin
-	
+
 	hub.UIStroke_7.Color = Color3.fromRGB(81, 88, 98)
 	hub.UIStroke_7.Thickness = 2
 	hub.UIStroke_7.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	hub.UIStroke_7.Parent = hub.Spin
-	
+
 	hub.Fling.BorderSizePixel = 0
 	hub.Fling.Position = UDim2.new(0.5, 0, 0.86, 0)
 	hub.Fling.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -670,14 +672,14 @@ local function setGuiPropertiesOnLoad()
 	hub.Fling.Text = "Fling"
 	hub.Fling.BackgroundTransparency = 0.9
 	hub.Fling.Parent = hub.HumanoidTab
-	
+
 	hub.UICorner_18.Parent = hub.Fling
-	
+
 	hub.UIStroke_8.Color = Color3.fromRGB(81, 88, 98)
 	hub.UIStroke_8.Thickness = 2
 	hub.UIStroke_8.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	hub.UIStroke_8.Parent = hub.Fling
-	
+
 	hub.Fly.BorderSizePixel = 0
 	hub.Fly.Position = UDim2.new(0.804, 0, 0.86, 0)
 	hub.Fly.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -691,14 +693,14 @@ local function setGuiPropertiesOnLoad()
 	hub.Fly.Text = "Fly"
 	hub.Fly.BackgroundTransparency = 0.9
 	hub.Fly.Parent = hub.HumanoidTab
-	
+
 	hub.UICorner_19.Parent = hub.Fly
-	
+
 	hub.UIStroke_9.Color = Color3.fromRGB(81, 88, 98)
 	hub.UIStroke_9.Thickness = 2
 	hub.UIStroke_9.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	hub.UIStroke_9.Parent = hub.Fly
-	
+
 	hub.WalkSpeedBox.TextWrapped = true
 	hub.WalkSpeedBox.BorderSizePixel = 0
 	hub.WalkSpeedBox.PlaceholderColor3 = Color3.fromRGB(71, 75, 83)
@@ -714,9 +716,9 @@ local function setGuiPropertiesOnLoad()
 	hub.WalkSpeedBox.Text = ""
 	hub.WalkSpeedBox.Name = "WalkSpeedBox"
 	hub.WalkSpeedBox.Parent = hub.HumanoidTab
-	
+
 	hub.UICorner_20.Parent = hub.WalkSpeedBox
-	
+
 	hub.WalkSpeedSliderGroup.BorderSizePixel = 0
 	hub.WalkSpeedSliderGroup.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 	hub.WalkSpeedSliderGroup.Size = UDim2.new(0, 262, 0, 36)
@@ -725,16 +727,16 @@ local function setGuiPropertiesOnLoad()
 	hub.WalkSpeedSliderGroup.Position = UDim2.new(0.36, 0, 0.248, 0)
 	hub.WalkSpeedSliderGroup.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	hub.WalkSpeedSliderGroup.Parent = hub.HumanoidTab
-	
+
 	hub.WalkSpeedSlider.BorderSizePixel = 0
 	hub.WalkSpeedSlider.BackgroundColor3 = Color3.fromRGB(64, 68, 76)
 	hub.WalkSpeedSlider.Size = UDim2.new(1, 0, 1, 0)
 	hub.WalkSpeedSlider.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	hub.WalkSpeedSlider.Name = "WalkSpeedSlider"
 	hub.WalkSpeedSlider.Parent = hub.WalkSpeedSliderGroup
-	
+
 	hub.UICorner_21.Parent = hub.WalkSpeedSliderGroup
-	
+
 	hub.Noclip.BorderSizePixel = 0
 	hub.Noclip.Position = UDim2.new(0.802222, 0, 0.75, 0)
 	hub.Noclip.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -748,14 +750,35 @@ local function setGuiPropertiesOnLoad()
 	hub.Noclip.Text = "Noclip"
 	hub.Noclip.BackgroundTransparency = 0.9
 	hub.Noclip.Parent = hub.HumanoidTab
-	
+
 	hub.UICorner_22.Parent = hub.Noclip
-	
+
 	hub.UIStroke_10.Color = Color3.fromRGB(81, 88, 98)
 	hub.UIStroke_10.Thickness = 2
 	hub.UIStroke_10.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	hub.UIStroke_10.Parent = hub.Noclip
-	
+
+	hub.AntiFling.BorderSizePixel = 0
+	hub.AntiFling.Position = UDim2.new(0.5, 0, 0.75, 0)
+	hub.AntiFling.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	hub.AntiFling.FontFace = Font.new("rbxasset://fonts/families/RobotoMono.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+	hub.AntiFling.Name = "AntiFling"
+	hub.AntiFling.AnchorPoint = Vector2.new(0.5, 0)
+	hub.AntiFling.TextSize = 22
+	hub.AntiFling.Size = UDim2.new(0, 125, 0, 45)
+	hub.AntiFling.TextColor3 = Color3.fromRGB(214, 214, 214)
+	hub.AntiFling.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	hub.AntiFling.Text = "Anti-fling"
+	hub.AntiFling.BackgroundTransparency = 0.9
+	hub.AntiFling.Parent = hub.HumanoidTab
+
+	hub.UICorner_23.Parent = hub.AntiFling
+
+	hub.UIStroke_11.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_11.Thickness = 2
+	hub.UIStroke_11.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_11.Parent = hub.AntiFling
+
 	hub.OtherTab.BorderSizePixel = 0
 	hub.OtherTab.BackgroundColor3 = Color3.fromRGB(39, 42, 47)
 	hub.OtherTab.Size = UDim2.new(0, 450, 0, 500)
@@ -764,7 +787,7 @@ local function setGuiPropertiesOnLoad()
 	hub.OtherTab.Visible = false
 	hub.OtherTab.Name = "OtherTab"
 	hub.OtherTab.Parent = hub.PrisonLife
-	
+
 	hub.Title_3.TextWrapped = true
 	hub.Title_3.BorderSizePixel = 0
 	hub.Title_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -778,7 +801,7 @@ local function setGuiPropertiesOnLoad()
 	hub.Title_3.Text = "Other Tab 💥‼️ "
 	hub.Title_3.BackgroundTransparency = 1
 	hub.Title_3.Parent = hub.OtherTab
-	
+
 	hub.Touch.TextWrapped = true
 	hub.Touch.BorderSizePixel = 0
 	hub.Touch.Position = UDim2.new(0.195556, 0, 0.86, 0)
@@ -793,14 +816,14 @@ local function setGuiPropertiesOnLoad()
 	hub.Touch.Text = "Touch"
 	hub.Touch.BackgroundTransparency = 0.9
 	hub.Touch.Parent = hub.OtherTab
-	
-	hub.UICorner_23.Parent = hub.Touch
-	
-	hub.UIStroke_11.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_11.Thickness = 2
-	hub.UIStroke_11.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_11.Parent = hub.Touch
-	
+
+	hub.UICorner_24.Parent = hub.Touch
+
+	hub.UIStroke_12.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_12.Thickness = 2
+	hub.UIStroke_12.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_12.Parent = hub.Touch
+
 	hub.PlayerBox_1.TextWrapped = true
 	hub.PlayerBox_1.BorderSizePixel = 0
 	hub.PlayerBox_1.PlaceholderColor3 = Color3.fromRGB(71, 75, 83)
@@ -816,28 +839,28 @@ local function setGuiPropertiesOnLoad()
 	hub.PlayerBox_1.Text = ""
 	hub.PlayerBox_1.Name = "PlayerBox"
 	hub.PlayerBox_1.Parent = hub.OtherTab
-	
-	hub.UICorner_24.Parent = hub.PlayerBox_1
-	
+
+	hub.UICorner_25.Parent = hub.PlayerBox_1
+
 	hub.MM2.BorderSizePixel = 0
 	hub.MM2.BackgroundColor3 = Color3.fromRGB(39, 42, 47)
 	hub.MM2.Size = UDim2.new(0, 450, 0, 500)
 	hub.MM2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	hub.MM2.BackgroundTransparency = 1
+	hub.MM2.Visible = false
 	hub.MM2.Name = "MM2"
 	hub.MM2.Position = UDim2.new(0.249983, 0, 0.0547252, 0)
 	hub.MM2.Parent = hub.Container
-	hub.MM2.Visible = false
-	
+
 	hub.MainTab.BorderSizePixel = 0
 	hub.MainTab.BackgroundColor3 = Color3.fromRGB(39, 42, 47)
 	hub.MainTab.Size = UDim2.new(0, 450, 0, 500)
 	hub.MainTab.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	hub.MainTab.BackgroundTransparency = 1
+	hub.MainTab.Visible = false
 	hub.MainTab.Name = "MainTab"
 	hub.MainTab.Parent = hub.MM2
-	hub.MainTab.Visible = false
-	
+
 	hub.Title_4.TextWrapped = true
 	hub.Title_4.BorderSizePixel = 0
 	hub.Title_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -851,7 +874,7 @@ local function setGuiPropertiesOnLoad()
 	hub.Title_4.Text = "Main Cmds 👽 [none rn]"
 	hub.Title_4.BackgroundTransparency = 1
 	hub.Title_4.Parent = hub.MainTab
-	
+
 	hub.HumanoidTab_1.BorderSizePixel = 0
 	hub.HumanoidTab_1.BackgroundColor3 = Color3.fromRGB(39, 42, 47)
 	hub.HumanoidTab_1.Size = UDim2.new(0, 450, 0, 500)
@@ -860,7 +883,7 @@ local function setGuiPropertiesOnLoad()
 	hub.HumanoidTab_1.Visible = false
 	hub.HumanoidTab_1.Name = "HumanoidTab"
 	hub.HumanoidTab_1.Parent = hub.MM2
-	
+
 	hub.Title_5.TextWrapped = true
 	hub.Title_5.BorderSizePixel = 0
 	hub.Title_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -874,7 +897,7 @@ local function setGuiPropertiesOnLoad()
 	hub.Title_5.Text = "Humanoid Events"
 	hub.Title_5.BackgroundTransparency = 1
 	hub.Title_5.Parent = hub.HumanoidTab_1
-	
+
 	hub.Spin_1.TextWrapped = true
 	hub.Spin_1.BorderSizePixel = 0
 	hub.Spin_1.Position = UDim2.new(0.195556, 0, 0.86, 0)
@@ -889,14 +912,14 @@ local function setGuiPropertiesOnLoad()
 	hub.Spin_1.Text = "Spin"
 	hub.Spin_1.BackgroundTransparency = 0.9
 	hub.Spin_1.Parent = hub.HumanoidTab_1
-	
-	hub.UICorner_25.Parent = hub.Spin_1
-	
-	hub.UIStroke_12.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_12.Thickness = 2
-	hub.UIStroke_12.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_12.Parent = hub.Spin_1
-	
+
+	hub.UICorner_26.Parent = hub.Spin_1
+
+	hub.UIStroke_13.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_13.Thickness = 2
+	hub.UIStroke_13.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_13.Parent = hub.Spin_1
+
 	hub.Fling_1.BorderSizePixel = 0
 	hub.Fling_1.Position = UDim2.new(0.5, 0, 0.86, 0)
 	hub.Fling_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -910,14 +933,14 @@ local function setGuiPropertiesOnLoad()
 	hub.Fling_1.Text = "Fling"
 	hub.Fling_1.BackgroundTransparency = 0.9
 	hub.Fling_1.Parent = hub.HumanoidTab_1
-	
-	hub.UICorner_26.Parent = hub.Fling_1
-	
-	hub.UIStroke_13.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_13.Thickness = 2
-	hub.UIStroke_13.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_13.Parent = hub.Fling_1
-	
+
+	hub.UICorner_27.Parent = hub.Fling_1
+
+	hub.UIStroke_14.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_14.Thickness = 2
+	hub.UIStroke_14.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_14.Parent = hub.Fling_1
+
 	hub.Fly_1.BorderSizePixel = 0
 	hub.Fly_1.Position = UDim2.new(0.804, 0, 0.86, 0)
 	hub.Fly_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -931,14 +954,14 @@ local function setGuiPropertiesOnLoad()
 	hub.Fly_1.Text = "Fly"
 	hub.Fly_1.BackgroundTransparency = 0.9
 	hub.Fly_1.Parent = hub.HumanoidTab_1
-	
-	hub.UICorner_27.Parent = hub.Fly_1
-	
-	hub.UIStroke_14.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_14.Thickness = 2
-	hub.UIStroke_14.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_14.Parent = hub.Fly_1
-	
+
+	hub.UICorner_28.Parent = hub.Fly_1
+
+	hub.UIStroke_15.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_15.Thickness = 2
+	hub.UIStroke_15.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_15.Parent = hub.Fly_1
+
 	hub.WalkSpeedBox_1.TextWrapped = true
 	hub.WalkSpeedBox_1.BorderSizePixel = 0
 	hub.WalkSpeedBox_1.PlaceholderColor3 = Color3.fromRGB(71, 75, 83)
@@ -954,9 +977,9 @@ local function setGuiPropertiesOnLoad()
 	hub.WalkSpeedBox_1.Text = ""
 	hub.WalkSpeedBox_1.Name = "WalkSpeedBox"
 	hub.WalkSpeedBox_1.Parent = hub.HumanoidTab_1
-	
-	hub.UICorner_28.Parent = hub.WalkSpeedBox_1
-	
+
+	hub.UICorner_29.Parent = hub.WalkSpeedBox_1
+
 	hub.WalkSpeedSliderGroup_1.BorderSizePixel = 0
 	hub.WalkSpeedSliderGroup_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 	hub.WalkSpeedSliderGroup_1.Size = UDim2.new(0, 262, 0, 36)
@@ -965,16 +988,16 @@ local function setGuiPropertiesOnLoad()
 	hub.WalkSpeedSliderGroup_1.Position = UDim2.new(0.36, 0, 0.248, 0)
 	hub.WalkSpeedSliderGroup_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	hub.WalkSpeedSliderGroup_1.Parent = hub.HumanoidTab_1
-	
+
 	hub.WalkSpeedSlider_1.BorderSizePixel = 0
 	hub.WalkSpeedSlider_1.BackgroundColor3 = Color3.fromRGB(64, 68, 76)
 	hub.WalkSpeedSlider_1.Size = UDim2.new(1, 0, 1, 0)
 	hub.WalkSpeedSlider_1.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	hub.WalkSpeedSlider_1.Name = "WalkSpeedSlider"
 	hub.WalkSpeedSlider_1.Parent = hub.WalkSpeedSliderGroup_1
-	
-	hub.UICorner_29.Parent = hub.WalkSpeedSliderGroup_1
-	
+
+	hub.UICorner_30.Parent = hub.WalkSpeedSliderGroup_1
+
 	hub.Noclip_1.BorderSizePixel = 0
 	hub.Noclip_1.Position = UDim2.new(0.802222, 0, 0.75, 0)
 	hub.Noclip_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -988,14 +1011,14 @@ local function setGuiPropertiesOnLoad()
 	hub.Noclip_1.Text = "Noclip"
 	hub.Noclip_1.BackgroundTransparency = 0.9
 	hub.Noclip_1.Parent = hub.HumanoidTab_1
-	
-	hub.UICorner_30.Parent = hub.Noclip_1
-	
-	hub.UIStroke_15.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_15.Thickness = 2
-	hub.UIStroke_15.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_15.Parent = hub.Noclip_1
-	
+
+	hub.UICorner_31.Parent = hub.Noclip_1
+
+	hub.UIStroke_16.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_16.Thickness = 2
+	hub.UIStroke_16.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_16.Parent = hub.Noclip_1
+
 	hub.TeleportsTab.BorderSizePixel = 0
 	hub.TeleportsTab.BackgroundColor3 = Color3.fromRGB(39, 42, 47)
 	hub.TeleportsTab.Size = UDim2.new(0, 450, 0, 500)
@@ -1004,8 +1027,7 @@ local function setGuiPropertiesOnLoad()
 	hub.TeleportsTab.Visible = false
 	hub.TeleportsTab.Name = "TeleportsTab"
 	hub.TeleportsTab.Parent = hub.MM2
-	hub.TeleportsTab.Visible = false
-	
+
 	hub.Title_6.TextWrapped = true
 	hub.Title_6.BorderSizePixel = 0
 	hub.Title_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1019,7 +1041,7 @@ local function setGuiPropertiesOnLoad()
 	hub.Title_6.Text = "Teleports 🕳️"
 	hub.Title_6.BackgroundTransparency = 1
 	hub.Title_6.Parent = hub.TeleportsTab
-	
+
 	hub.Lobby.TextWrapped = true
 	hub.Lobby.BorderSizePixel = 0
 	hub.Lobby.Position = UDim2.new(0.195556, 0, 0.86, 0)
@@ -1034,14 +1056,14 @@ local function setGuiPropertiesOnLoad()
 	hub.Lobby.Text = "Lobby"
 	hub.Lobby.BackgroundTransparency = 0.9
 	hub.Lobby.Parent = hub.TeleportsTab
-	
-	hub.UICorner_31.Parent = hub.Lobby
-	
-	hub.UIStroke_16.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_16.Thickness = 2
-	hub.UIStroke_16.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_16.Parent = hub.Lobby
-	
+
+	hub.UICorner_32.Parent = hub.Lobby
+
+	hub.UIStroke_17.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_17.Thickness = 2
+	hub.UIStroke_17.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_17.Parent = hub.Lobby
+
 	hub.PlayerBoxMM2.TextWrapped = true
 	hub.PlayerBoxMM2.BorderSizePixel = 0
 	hub.PlayerBoxMM2.PlaceholderColor3 = Color3.fromRGB(71, 75, 83)
@@ -1055,12 +1077,11 @@ local function setGuiPropertiesOnLoad()
 	hub.PlayerBoxMM2.TextColor3 = Color3.fromRGB(214, 214, 214)
 	hub.PlayerBoxMM2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	hub.PlayerBoxMM2.Text = ""
-	hub.PlayerBoxMM2.CursorPosition = -1
 	hub.PlayerBoxMM2.Name = "PlayerBoxMM2"
 	hub.PlayerBoxMM2.Parent = hub.TeleportsTab
-	
-	hub.UICorner_32.Parent = hub.PlayerBoxMM2
-	
+
+	hub.UICorner_33.Parent = hub.PlayerBoxMM2
+
 	hub.ToPlayer.TextWrapped = true
 	hub.ToPlayer.BorderSizePixel = 0
 	hub.ToPlayer.Position = UDim2.new(0.499861, 0, 0.342, 0)
@@ -1075,16 +1096,16 @@ local function setGuiPropertiesOnLoad()
 	hub.ToPlayer.Text = "To Player"
 	hub.ToPlayer.BackgroundTransparency = 0.9
 	hub.ToPlayer.Parent = hub.TeleportsTab
-	
-	hub.UICorner_33.Parent = hub.ToPlayer
-	
-	hub.UIStroke_17.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_17.Thickness = 2
-	hub.UIStroke_17.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_17.Parent = hub.ToPlayer
-	
-	hub.UICorner_34.CornerRadius = UDim.new(0, 10)
-	hub.UICorner_34.Parent = hub.CanvasGroup
+
+	hub.UICorner_34.Parent = hub.ToPlayer
+
+	hub.UIStroke_18.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_18.Thickness = 2
+	hub.UIStroke_18.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_18.Parent = hub.ToPlayer
+
+	hub.UICorner_35.CornerRadius = UDim.new(0, 10)
+	hub.UICorner_35.Parent = hub.CanvasGroup
 	
 	hub.elGui.Parent = game.Players.LocalPlayer.PlayerGui
 end
@@ -1440,6 +1461,22 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 	local loopKill = true
 	local Flying = false
 	local canFly = true
+	local canAnti = true
+	local antying = false
+
+	local deltaTime = 0
+	local Function do 
+		local Last = os.clock()
+		function Function()
+			local DeltaTime = os.clock()-Last
+			Last=os.clock()
+			deltaTime=DeltaTime
+		end
+	end
+	deltaTime=0
+	
+	game:GetService("RunService").RenderStepped:Connect(Function)
+
 	local autoRespawn = true
 	local savedPos
 	local savedCamPos
@@ -1544,6 +1581,8 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 	end
 
 	local function getGuns()
+		local reActivate = false
+		if antying then reActivate = true;toggleAntiFling();task.wait(1) end
 		if SCRIPTACTIVE == false then return end
 		if gettingGuns == false then gettingGuns = true else return end
 		local humRP = plr.Character.HumanoidRootPart
@@ -1585,6 +1624,10 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 			RunService.RenderStepped:Wait()
 		until humRP.CFrame == savedCf or timeOut >= 2
 		gettingGuns = false
+		if reActivate then 
+			toggleAntiFling()
+			reActivate = false
+		end
 	end
 
 	local function bangPlayer(player)
@@ -1916,7 +1959,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 		end
 		--end
 	end
-
+	--local antiflingCheck = false
 	function toggleFly()
 		if canFly == false then return end
 		Flying = not Flying
@@ -1980,6 +2023,14 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 				end
 			end
 		end)
+
+		coroutine.wrap(function()
+			if antying then
+				toggleAntiFling()
+				task.wait()
+				toggleAntiFling()
+			end
+		end)()
 
 		huma.Died:Connect(function()
 			arresting = false
@@ -2254,6 +2305,95 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
         end
     end
 
+	function toggleAntiFling()
+		if canAnti == false then return end
+		antying = not antying
+	
+		if antying then
+			local ler = false
+			local char = plr.Character
+			local rootPart:BasePart = char:WaitForChild('HumanoidRootPart')
+			local hum:Humanoid = char:WaitForChild('Humanoid')
+			hum.PlatformStand = true
+			local currentCF = rootPart.CFrame
+			local Ypos = rootPart.Position.Y
+			local look = Vector3.new()
+			
+			local dir = currentCF.Position + rootPart.CFrame.LookVector.Unit * 2
+			look = dir * 2
+	
+			while antying and task.wait() do
+				local speed = 0.06 * (plr.Character.Humanoid.WalkSpeed/16)
+				local add = Vector3.new(0,0,0)
+	
+				local TextBox = UIS:GetFocusedTextBox()
+				if not TextBox then 
+					if UIS:IsKeyDown(Enum.KeyCode.W) then add -= (Camera.CFrame.RightVector:Cross(Vector3.new(0, 1, 0)) * speed) end-- Vector3.new(0,hum.MoveDirection.Y,0) end
+					if UIS:IsKeyDown(Enum.KeyCode.S) then add += (Camera.CFrame.RightVector:Cross(Vector3.new(0, 1, 0)) * speed) end-- Vector3.new(0,hum.MoveDirection.Y,0) end
+					if UIS:IsKeyDown(Enum.KeyCode.D) then add += (Camera.CFrame.RightVector * speed) end-- Vector3.new(0,hum.MoveDirection.Y * 2,0) end
+					if UIS:IsKeyDown(Enum.KeyCode.A) then add -= (Camera.CFrame.RightVector * speed) end-- Vector3.new(0,hum.MoveDirection.Y * 2,0) end
+					if UIS:IsKeyDown(Enum.KeyCode.E) then add += rootPart.CFrame.UpVector * speed end
+					if UIS:IsKeyDown(Enum.KeyCode.Q) then add -= rootPart.CFrame.UpVector * speed end
+	
+				end
+				rootPart.AssemblyLinearVelocity = Vector3.zero
+				rootPart.AssemblyAngularVelocity = Vector3.zero
+	
+				--print(dir)
+				if hum.MoveDirection.Magnitude <= 0 then
+					--dir = Vector3.new(0,0,0)
+				else
+					dir = hum.MoveDirection.Unit * 3
+				end
+				if ler then
+					look = look:Lerp(currentCF.Position + dir * 2, 0.1)
+				else
+					local jump
+					local jumping = false
+					jump = UIS.InputBegan:Connect(function(input, typing)
+						if not antying then jump:Disconnect();return end
+						if typing then return end
+						local jumpY = 0
+						local time = 0
+						local yVal = 0
+						local rootPos = rootPart.Position.Y
+						if input.KeyCode == Enum.KeyCode.Space then
+							if jumping == true then return end
+							if jumping == false then jumping = true end
+							local function antiJump()
+								while jumping do
+									time += deltaTime
+									jumpY = math.abs((7*math.cos(5*time-(math.pi/2))))
+									local val = math.clamp(jumpY, 0, 50)	
+	
+									Ypos = currentCF.Position.Y + val
+									--currentCF = CFrame.new((Vector3(currentCF.Position.X, 0, currentCF.Position.Z)))
+									if time >= math.pi/5 then time = 0; jumping = false
+										if UIS:IsKeyDown(Enum.KeyCode.Space) then 
+											jumping = true
+											antiJump()
+										end; 
+										return 
+									end
+									game:GetService("RunService").RenderStepped:Wait()
+								end
+							end
+							antiJump()
+						end
+					end)
+				end
+				currentCF += add
+				rootPart.CFrame = CFrame.new(
+					Vector3.new(currentCF.Position.X, Ypos, currentCF.Position.Z),
+					look
+				)
+				ler = true
+			end
+	
+			hum.PlatformStand = false
+		end
+	end
+
 	--< Function Pcalls >--
 	local waitTime = 5
 	local function checkLK()
@@ -2325,8 +2465,20 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 		if Flying == true then
 			toggleFly()
 		end
+		if antying == true then
+			toggleAntiFling()
+		end
+		canAnti = false
 		canFly = false
 		autoRespawn = false
+		for i,v in plr.Character:GetDescendants() do
+			if v:IsA("BasePart") then
+				if v.Name == "HumanoidRootPart" or v.Name == "UpperTorso" or v.Name == "LowerTorso" then
+					v.CanCollide = true
+					Toggles.Noclipping = false
+				end
+			end
+		end
 		hub.elGui:Destroy()
 		script:Destroy()
 		script.Enabled = false
@@ -2404,6 +2556,19 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 				--hub.Fly.Text = "Fly: Off"
                 hub.Fly.UIStroke.Enabled = false
 				Flying = false
+			end
+		end
+	end)
+
+	hub.AntiFling.Activated:Connect(function()
+		if antying == false then
+			Toast("Anti-fling", "Activated", ImageIds.Active, 5)
+			hub.AntiFling.UIStroke.Enabled = true
+			toggleAntiFling()
+		else if antying == true then
+				Toast("Anti-fling", "Deactivated", ImageIds.Inactive, 5)
+				hub.AntiFling.UIStroke.Enabled = false
+				antying = false
 			end
 		end
 	end)
