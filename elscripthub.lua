@@ -1632,6 +1632,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 		end
 	end
 
+	local bAntifling = false
 	local function bangPlayer(player)
 		player = string.gsub(player, "\t", "")
 		player = string.gsub(player, " ", "")
@@ -1652,7 +1653,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 				bang:Play(0.1, 1, 1)
 				bang:AdjustSpeed(3)
 				if game.Players[select(2, findPlayer(player))] then
-					toggleAntiFling()
+					if antying then	bAntifling = true; toggleAntiFling(); task.wait() end
 					local tempPlr = game.Players[select(2, findPlayer(player))]
 					Toast("Touch", "Activated", ImageIds.Active, 5)
 					hub.Touch.Text = "Touching" -- TOUCHING
@@ -2051,6 +2052,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 				bangAnim:Destroy()
 				hub.Touch.Text = "Touch" -- NOT TOUCHING
                 hub.Touch.UIStroke.Enabled = false
+				if bAntifling then bAntifling = false; toggleAntiFling(); task.wait() end
 			end
 
 			if autoRespawn then
@@ -2145,6 +2147,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 			bangAnim:Destroy()
 			hub.Touch.Text = "Touch" -- NOT TOUCHING
             hub.Touch.UIStroke.Enabled = false
+			if bAntifling then bAntifling = false; toggleAntiFling(); task.wait() end
 		end
 		if autoRespawn then
 			local timeOut = 0
@@ -2686,6 +2689,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 			bang:Stop()
 			bangAnim:Destroy()
 			hub.Touch.Text = "Not touching"
+			if bAntifling then bAntifling = false; toggleAntiFling() end
 		end
 	end)
 
