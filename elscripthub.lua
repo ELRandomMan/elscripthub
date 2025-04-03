@@ -1582,7 +1582,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 
 	local function getGuns()
 		local reActivate = false
-		if antying then reActivate = true;toggleAntiFling();task.wait(1) end
+		if antying then reActivate = true;toggleAntiFling();task.wait() end
 		if SCRIPTACTIVE == false then return end
 		if gettingGuns == false then gettingGuns = true else return end
 		local humRP = plr.Character.HumanoidRootPart
@@ -1650,6 +1650,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 				bang:Play(0.1, 1, 1)
 				bang:AdjustSpeed(3)
 				if game.Players[select(2, findPlayer(player))] then
+					toggleAntiFling()
 					local tempPlr = game.Players[select(2, findPlayer(player))]
 					Toast("Touch", "Activated", ImageIds.Active, 5)
 					hub.Touch.Text = "Touching" -- TOUCHING
@@ -1894,6 +1895,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 	end
 
 	local function arrestPlayer(player)
+		local antiToggle = false
 		if arresting == true then return end
 		player = string.gsub(player, "\t", "")
 		player = string.gsub(player, " ", "")
@@ -1929,9 +1931,10 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 					return
 				end
 			end
+			if antying then antiToggle = true; toggleAntiFling();task.wait(0.1) end
 			repeat
 				arresting = true
-				plr.Character.HumanoidRootPart.CFrame = tempPlayer.Character.HumanoidRootPart.CFrame - tempPlayer.Character.HumanoidRootPart.CFrame.LookVector
+				plr.Character.HumanoidRootPart.CFrame = (tempPlayer.Character.HumanoidRootPart.CFrame - tempPlayer.Character.HumanoidRootPart.CFrame.LookVector * 3) * CFrame.new(Vector3.new(0, 1, 0))
 				task.spawn(function()
 					if tempPlayer.Character:FindFirstChild("Humanoid") and tempPlayer.Character:FindFirstChildOfClass("Humanoid").Health ~= 0 then
 						workspace.Remote.arrest:InvokeServer(tempPlayer.Character:FindFirstChildWhichIsA("Part"))
@@ -1943,6 +1946,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 			if not game.Players:FindFirstChild(tempName) then 
 				Toast("Arrest 🔗", "Player left... :(", ImageIds.Error, 5)
 				arresting = false
+				if antiToggle then toggleAntiFling(); task.wait(0.1) end
 				return
 			end
 			if tempPlayer.Character:FindFirstChild("Head"):FindFirstChild("handcuffedGui") then
@@ -1953,6 +1957,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 				arresting = false
 			end
 			plr.Character.HumanoidRootPart.CFrame = savedPos
+			if antiToggle then task.wait(); toggleAntiFling() end
 			return
 		else
 			Toast("Arrest 🔗", "Player was not detected... :(", ImageIds.Error, 5)
@@ -1961,10 +1966,12 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 	end
 	--local antiflingCheck = false
 	function toggleFly()
+		local antiToggle = false
 		if canFly == false then return end
 		Flying = not Flying
 
 		if Flying then
+			if antying then antiToggle = true; toggleAntiFling(); task.wait() end
 			local char = plr.Character
 			local rootPart:BasePart = char:WaitForChild('HumanoidRootPart')
 			local hum:Humanoid = char:WaitForChild('Humanoid')
@@ -1994,10 +2001,11 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 						currentCF.Position + (Camera.CFrame.LookVector * 2)
 					)
 			end
-
+			if antiToggle then task.wait(); toggleAntiFling() end
 			hum.PlatformStand = false
 		end
 	end
+
 	plr.Character.Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
 		if plr.Character.Humanoid.WalkSpeed <= 0 then
 			for i =1, 20 do
@@ -2009,6 +2017,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 			end
 		end
 	end)
+
 	plr.CharacterAdded:connect(function()
 		local huma = plr.Character:WaitForChild("Humanoid")
 		local localChar = plr.Character or plr.CharacterAdded:Wait()
@@ -2332,9 +2341,8 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 					if UIS:IsKeyDown(Enum.KeyCode.S) then add += (Camera.CFrame.RightVector:Cross(Vector3.new(0, 1, 0)) * speed) end-- Vector3.new(0,hum.MoveDirection.Y,0) end
 					if UIS:IsKeyDown(Enum.KeyCode.D) then add += (Camera.CFrame.RightVector * speed) end-- Vector3.new(0,hum.MoveDirection.Y * 2,0) end
 					if UIS:IsKeyDown(Enum.KeyCode.A) then add -= (Camera.CFrame.RightVector * speed) end-- Vector3.new(0,hum.MoveDirection.Y * 2,0) end
-					if UIS:IsKeyDown(Enum.KeyCode.E) then add += rootPart.CFrame.UpVector * speed end
-					if UIS:IsKeyDown(Enum.KeyCode.Q) then add -= rootPart.CFrame.UpVector * speed end
-	
+					--if UIS:IsKeyDown(Enum.KeyCode.E) then add += rootPart.CFrame.UpVector * speed end
+					--if UIS:IsKeyDown(Enum.KeyCode.Q) then add -= rootPart.CFrame.UpVector * speed end
 				end
 				rootPart.AssemblyLinearVelocity = Vector3.zero
 				rootPart.AssemblyAngularVelocity = Vector3.zero
@@ -2366,8 +2374,23 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 									jumpY = math.abs((7*math.cos(5*time-(math.pi/2))))
 									local val = math.clamp(jumpY, 0, 50)	
 	
-									Ypos = currentCF.Position.Y + val
-									--currentCF = CFrame.new((Vector3(currentCF.Position.X, 0, currentCF.Position.Z)))
+									
+									local plr = game.Players.LocalPlayer
+									local Params = RaycastParams.new()
+									Params.FilterType = Enum.RaycastFilterType.Exclude
+									Params.FilterDescendantsInstances = {plr.Character}
+	
+									local RayOrigin = plr.Character.HumanoidRootPart.Position
+									local RayDirection = Vector3.new(0,-3.01, 0)
+	
+									local result = workspace:Raycast(RayOrigin, RayDirection, Params)
+									print(result)
+									if result and val > 1 then
+										add += Vector3.new(0,RayOrigin.Y,0) - Vector3.new(0, plr.Character.HumanoidRootPart.Position.Y, 0) ; time = 0; jumping = false
+									end
+									
+									Ypos = rootPos + val-- currentCF.Position.Y + val
+									
 									if time >= math.pi/5 then time = 0; jumping = false
 										if UIS:IsKeyDown(Enum.KeyCode.Space) then 
 											jumping = true
@@ -2380,12 +2403,38 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 							end
 							antiJump()
 						end
+
+						local plr = game.Players.LocalPlayer
+						local Params = RaycastParams.new()
+						Params.FilterType = Enum.RaycastFilterType.Exclude
+						Params.FilterDescendantsInstances = {plr.Character}
+
+						local RayOrigin = plr.Character.HumanoidRootPart.Position
+						local RayDirection = Vector3.new(0,-3.01, 0)
+
+						local result = workspace:Raycast(RayOrigin, RayDirection, Params)
+						if not result and jumping == false then
+							repeat 
+								local plr1 = game.Players.LocalPlayer
+								local Params1 = RaycastParams.new()
+								Params1.FilterType = Enum.RaycastFilterType.Exclude
+								Params1.FilterDescendantsInstances = {plr1.Character}
+
+								local RayOrigin1 = plr1.Character.HumanoidRootPart.Position
+								local RayDirection1 = Vector3.new(0,-3.2, 0)
+
+								local result1 = workspace:Raycast(RayOrigin1, RayDirection1, Params1)
+								Ypos -= 0.15
+								task.wait() 
+							until result1;
+						end
 					end)
 				end
+
 				currentCF += add
 				rootPart.CFrame = CFrame.new(
 					Vector3.new(currentCF.Position.X, Ypos, currentCF.Position.Z),
-					look
+					Vector3.new(look.X, plr.Character.HumanoidRootPart.Position.Y, look.Z)
 				)
 				ler = true
 			end
