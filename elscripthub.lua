@@ -1444,7 +1444,8 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 		plr.Name, --self
 		"EpicMaster3045",
 		"ELRandxmMan",
-		"ELRandomDude",
+		"ELRandomDude",,
+		"ELRandomGuy"
 		"pwurplejuice",
 		"2x5eq",
 		"youbetterhideyokidss",
@@ -1452,10 +1453,11 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 		"Ilikepeoplenomore",
 		"XxILikeTrains4578",
 		"shajjd123",
-		"62v852",
+		"62v852", --zoqie
 		"elqueloleaesptu",
 		"isa_vigevani579",
-        "anheeeff2"
+        "anheeeff2",
+		"TAYJOHNSOCOOL11"
 	}
 	local killAura = false
 	local loopKill = true
