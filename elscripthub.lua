@@ -1444,8 +1444,8 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 		plr.Name, --self
 		"EpicMaster3045",
 		"ELRandxmMan",
-		"ELRandomDude",,
-		"ELRandomGuy"
+		"ELRandomDude",
+		"ELRandomGuy",
 		"pwurplejuice",
 		"2x5eq",
 		"youbetterhideyokidss",
