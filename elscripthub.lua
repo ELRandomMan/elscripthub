@@ -95,65 +95,68 @@ local hub =
 	TeleportPL = Instance.new("TextButton"),
 	UICorner_27 = Instance.new("UICorner"),
 	UIStroke_14 = Instance.new("UIStroke"),
+	RejoinButton = Instance.new("TextButton"),
+	UICorner_28 = Instance.new("UICorner"),
+	UIStroke_15 = Instance.new("UIStroke"),
 	Teleports_1 = Instance.new("Frame"),
 	Title_4 = Instance.new("TextLabel"),
 	Nexus = Instance.new("TextButton"),
-	UICorner_28 = Instance.new("UICorner"),
-	UIStroke_15 = Instance.new("UIStroke"),
-	Cells = Instance.new("TextButton"),
 	UICorner_29 = Instance.new("UICorner"),
 	UIStroke_16 = Instance.new("UIStroke"),
-	Yard = Instance.new("TextButton"),
+	Cells = Instance.new("TextButton"),
 	UICorner_30 = Instance.new("UICorner"),
 	UIStroke_17 = Instance.new("UIStroke"),
-	CriminalBase = Instance.new("TextButton"),
+	Yard = Instance.new("TextButton"),
 	UICorner_31 = Instance.new("UICorner"),
 	UIStroke_18 = Instance.new("UIStroke"),
-	GuardsRoom = Instance.new("TextButton"),
+	CriminalBase = Instance.new("TextButton"),
 	UICorner_32 = Instance.new("UICorner"),
 	UIStroke_19 = Instance.new("UIStroke"),
-	Cafeteria = Instance.new("TextButton"),
+	GuardsRoom = Instance.new("TextButton"),
 	UICorner_33 = Instance.new("UICorner"),
 	UIStroke_20 = Instance.new("UIStroke"),
-	BackHall = Instance.new("TextButton"),
+	Cafeteria = Instance.new("TextButton"),
 	UICorner_34 = Instance.new("UICorner"),
 	UIStroke_21 = Instance.new("UIStroke"),
-	Kitchen = Instance.new("TextButton"),
+	BackHall = Instance.new("TextButton"),
 	UICorner_35 = Instance.new("UICorner"),
 	UIStroke_22 = Instance.new("UIStroke"),
+	Kitchen = Instance.new("TextButton"),
+	UICorner_36 = Instance.new("UICorner"),
+	UIStroke_23 = Instance.new("UIStroke"),
 	MM2 = Instance.new("Frame"),
 	MainTab = Instance.new("Frame"),
 	Title_5 = Instance.new("TextLabel"),
 	HumanoidTab_1 = Instance.new("Frame"),
 	Title_6 = Instance.new("TextLabel"),
 	Spin_1 = Instance.new("TextButton"),
-	UICorner_36 = Instance.new("UICorner"),
-	UIStroke_23 = Instance.new("UIStroke"),
-	Fling_1 = Instance.new("TextButton"),
 	UICorner_37 = Instance.new("UICorner"),
 	UIStroke_24 = Instance.new("UIStroke"),
-	Fly_1 = Instance.new("TextButton"),
+	Fling_1 = Instance.new("TextButton"),
 	UICorner_38 = Instance.new("UICorner"),
 	UIStroke_25 = Instance.new("UIStroke"),
-	WalkSpeedBox_1 = Instance.new("TextBox"),
+	Fly_1 = Instance.new("TextButton"),
 	UICorner_39 = Instance.new("UICorner"),
+	UIStroke_26 = Instance.new("UIStroke"),
+	WalkSpeedBox_1 = Instance.new("TextBox"),
+	UICorner_40 = Instance.new("UICorner"),
 	WalkSpeedSliderGroup_1 = Instance.new("CanvasGroup"),
 	WalkSpeedSlider_1 = Instance.new("Frame"),
-	UICorner_40 = Instance.new("UICorner"),
-	Noclip_1 = Instance.new("TextButton"),
 	UICorner_41 = Instance.new("UICorner"),
-	UIStroke_26 = Instance.new("UIStroke"),
+	Noclip_1 = Instance.new("TextButton"),
+	UICorner_42 = Instance.new("UICorner"),
+	UIStroke_27 = Instance.new("UIStroke"),
 	TeleportsTab = Instance.new("Frame"),
 	Title_7 = Instance.new("TextLabel"),
 	Lobby = Instance.new("TextButton"),
-	UICorner_42 = Instance.new("UICorner"),
-	UIStroke_27 = Instance.new("UIStroke"),
-	PlayerBoxMM2 = Instance.new("TextBox"),
 	UICorner_43 = Instance.new("UICorner"),
-	ToPlayer = Instance.new("TextButton"),
-	UICorner_44 = Instance.new("UICorner"),
 	UIStroke_28 = Instance.new("UIStroke"),
+	PlayerBoxMM2 = Instance.new("TextBox"),
+	UICorner_44 = Instance.new("UICorner"),
+	ToPlayer = Instance.new("TextButton"),
 	UICorner_45 = Instance.new("UICorner"),
+	UIStroke_29 = Instance.new("UIStroke"),
+	UICorner_46 = Instance.new("UICorner"),
 	PlayerList = Instance.new("ScrollingFrame")
 }
 
@@ -913,6 +916,27 @@ local function setGuiPropertiesOnLoad()
 	hub.UIStroke_14.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	hub.UIStroke_14.Parent = hub.TeleportPL
 
+	hub.RejoinButton.BorderSizePixel = 0
+	hub.RejoinButton.Position = UDim2.new(0.804, 0, 0.86, 0)
+	hub.RejoinButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	hub.RejoinButton.FontFace = Font.new("rbxasset://fonts/families/RobotoMono.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+	hub.RejoinButton.Name = "RejoinButton"
+	hub.RejoinButton.AnchorPoint = Vector2.new(0.5, 0)
+	hub.RejoinButton.TextSize = 22
+	hub.RejoinButton.Size = UDim2.new(0, 125, 0, 45)
+	hub.RejoinButton.TextColor3 = Color3.fromRGB(165, 180, 214)
+	hub.RejoinButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	hub.RejoinButton.Text = "Rejoin 🔄️"
+	hub.RejoinButton.BackgroundTransparency = 0.9
+	hub.RejoinButton.Parent = hub.OtherTab
+
+	hub.UICorner_28.Parent = hub.RejoinButton
+
+	hub.UIStroke_15.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_15.Thickness = 2
+	hub.UIStroke_15.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_15.Parent = hub.RejoinButton
+
 	hub.Teleports_1.BorderSizePixel = 0
 	hub.Teleports_1.BackgroundColor3 = Color3.fromRGB(39, 42, 47)
 	hub.Teleports_1.Size = UDim2.new(0, 450, 0, 500)
@@ -951,12 +975,12 @@ local function setGuiPropertiesOnLoad()
 	hub.Nexus.BackgroundTransparency = 0.9
 	hub.Nexus.Parent = hub.Teleports_1
 
-	hub.UICorner_28.Parent = hub.Nexus
+	hub.UICorner_29.Parent = hub.Nexus
 
-	hub.UIStroke_15.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_15.Thickness = 2
-	hub.UIStroke_15.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_15.Parent = hub.Nexus
+	hub.UIStroke_16.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_16.Thickness = 2
+	hub.UIStroke_16.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_16.Parent = hub.Nexus
 
 	hub.Cells.BorderSizePixel = 0
 	hub.Cells.Position = UDim2.new(0.5, 0, 0.86, 0)
@@ -972,12 +996,12 @@ local function setGuiPropertiesOnLoad()
 	hub.Cells.BackgroundTransparency = 0.9
 	hub.Cells.Parent = hub.Teleports_1
 
-	hub.UICorner_29.Parent = hub.Cells
+	hub.UICorner_30.Parent = hub.Cells
 
-	hub.UIStroke_16.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_16.Thickness = 2
-	hub.UIStroke_16.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_16.Parent = hub.Cells
+	hub.UIStroke_17.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_17.Thickness = 2
+	hub.UIStroke_17.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_17.Parent = hub.Cells
 
 	hub.Yard.BorderSizePixel = 0
 	hub.Yard.RichText = true
@@ -994,12 +1018,12 @@ local function setGuiPropertiesOnLoad()
 	hub.Yard.BackgroundTransparency = 0.9
 	hub.Yard.Parent = hub.Teleports_1
 
-	hub.UICorner_30.Parent = hub.Yard
+	hub.UICorner_31.Parent = hub.Yard
 
-	hub.UIStroke_17.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_17.Thickness = 2
-	hub.UIStroke_17.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_17.Parent = hub.Yard
+	hub.UIStroke_18.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_18.Thickness = 2
+	hub.UIStroke_18.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_18.Parent = hub.Yard
 
 	hub.CriminalBase.BorderSizePixel = 0
 	hub.CriminalBase.Position = UDim2.new(0.802222, 0, 0.75, 0)
@@ -1015,12 +1039,12 @@ local function setGuiPropertiesOnLoad()
 	hub.CriminalBase.BackgroundTransparency = 0.9
 	hub.CriminalBase.Parent = hub.Teleports_1
 
-	hub.UICorner_31.Parent = hub.CriminalBase
+	hub.UICorner_32.Parent = hub.CriminalBase
 
-	hub.UIStroke_18.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_18.Thickness = 2
-	hub.UIStroke_18.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_18.Parent = hub.CriminalBase
+	hub.UIStroke_19.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_19.Thickness = 2
+	hub.UIStroke_19.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_19.Parent = hub.CriminalBase
 
 	hub.GuardsRoom.BorderSizePixel = 0
 	hub.GuardsRoom.Position = UDim2.new(0.5, 0, 0.75, 0)
@@ -1036,12 +1060,12 @@ local function setGuiPropertiesOnLoad()
 	hub.GuardsRoom.BackgroundTransparency = 0.9
 	hub.GuardsRoom.Parent = hub.Teleports_1
 
-	hub.UICorner_32.Parent = hub.GuardsRoom
+	hub.UICorner_33.Parent = hub.GuardsRoom
 
-	hub.UIStroke_19.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_19.Thickness = 2
-	hub.UIStroke_19.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_19.Parent = hub.GuardsRoom
+	hub.UIStroke_20.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_20.Thickness = 2
+	hub.UIStroke_20.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_20.Parent = hub.GuardsRoom
 
 	hub.Cafeteria.BorderSizePixel = 0
 	hub.Cafeteria.Position = UDim2.new(0.195556, 0, 0.75, 0)
@@ -1057,12 +1081,12 @@ local function setGuiPropertiesOnLoad()
 	hub.Cafeteria.BackgroundTransparency = 0.9
 	hub.Cafeteria.Parent = hub.Teleports_1
 
-	hub.UICorner_33.Parent = hub.Cafeteria
+	hub.UICorner_34.Parent = hub.Cafeteria
 
-	hub.UIStroke_20.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_20.Thickness = 2
-	hub.UIStroke_20.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_20.Parent = hub.Cafeteria
+	hub.UIStroke_21.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_21.Thickness = 2
+	hub.UIStroke_21.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_21.Parent = hub.Cafeteria
 
 	hub.BackHall.BorderSizePixel = 0
 	hub.BackHall.Position = UDim2.new(0.5, 0, 0.64, 0)
@@ -1078,12 +1102,12 @@ local function setGuiPropertiesOnLoad()
 	hub.BackHall.BackgroundTransparency = 0.9
 	hub.BackHall.Parent = hub.Teleports_1
 
-	hub.UICorner_34.Parent = hub.BackHall
+	hub.UICorner_35.Parent = hub.BackHall
 
-	hub.UIStroke_21.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_21.Thickness = 2
-	hub.UIStroke_21.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_21.Parent = hub.BackHall
+	hub.UIStroke_22.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_22.Thickness = 2
+	hub.UIStroke_22.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_22.Parent = hub.BackHall
 
 	hub.Kitchen.BorderSizePixel = 0
 	hub.Kitchen.Position = UDim2.new(0.802222, 0, 0.64, 0)
@@ -1099,12 +1123,12 @@ local function setGuiPropertiesOnLoad()
 	hub.Kitchen.BackgroundTransparency = 0.9
 	hub.Kitchen.Parent = hub.Teleports_1
 
-	hub.UICorner_35.Parent = hub.Kitchen
+	hub.UICorner_36.Parent = hub.Kitchen
 
-	hub.UIStroke_22.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_22.Thickness = 2
-	hub.UIStroke_22.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_22.Parent = hub.Kitchen
+	hub.UIStroke_23.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_23.Thickness = 2
+	hub.UIStroke_23.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_23.Parent = hub.Kitchen
 
 	hub.MM2.BorderSizePixel = 0
 	hub.MM2.BackgroundColor3 = Color3.fromRGB(39, 42, 47)
@@ -1177,12 +1201,12 @@ local function setGuiPropertiesOnLoad()
 	hub.Spin_1.BackgroundTransparency = 0.9
 	hub.Spin_1.Parent = hub.HumanoidTab_1
 
-	hub.UICorner_36.Parent = hub.Spin_1
+	hub.UICorner_37.Parent = hub.Spin_1
 
-	hub.UIStroke_23.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_23.Thickness = 2
-	hub.UIStroke_23.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_23.Parent = hub.Spin_1
+	hub.UIStroke_24.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_24.Thickness = 2
+	hub.UIStroke_24.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_24.Parent = hub.Spin_1
 
 	hub.Fling_1.BorderSizePixel = 0
 	hub.Fling_1.Position = UDim2.new(0.5, 0, 0.86, 0)
@@ -1198,12 +1222,12 @@ local function setGuiPropertiesOnLoad()
 	hub.Fling_1.BackgroundTransparency = 0.9
 	hub.Fling_1.Parent = hub.HumanoidTab_1
 
-	hub.UICorner_37.Parent = hub.Fling_1
+	hub.UICorner_38.Parent = hub.Fling_1
 
-	hub.UIStroke_24.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_24.Thickness = 2
-	hub.UIStroke_24.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_24.Parent = hub.Fling_1
+	hub.UIStroke_25.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_25.Thickness = 2
+	hub.UIStroke_25.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_25.Parent = hub.Fling_1
 
 	hub.Fly_1.BorderSizePixel = 0
 	hub.Fly_1.Position = UDim2.new(0.804, 0, 0.86, 0)
@@ -1219,12 +1243,12 @@ local function setGuiPropertiesOnLoad()
 	hub.Fly_1.BackgroundTransparency = 0.9
 	hub.Fly_1.Parent = hub.HumanoidTab_1
 
-	hub.UICorner_38.Parent = hub.Fly_1
+	hub.UICorner_39.Parent = hub.Fly_1
 
-	hub.UIStroke_25.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_25.Thickness = 2
-	hub.UIStroke_25.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_25.Parent = hub.Fly_1
+	hub.UIStroke_26.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_26.Thickness = 2
+	hub.UIStroke_26.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_26.Parent = hub.Fly_1
 
 	hub.WalkSpeedBox_1.TextWrapped = true
 	hub.WalkSpeedBox_1.BorderSizePixel = 0
@@ -1242,7 +1266,7 @@ local function setGuiPropertiesOnLoad()
 	hub.WalkSpeedBox_1.Name = "WalkSpeedBox"
 	hub.WalkSpeedBox_1.Parent = hub.HumanoidTab_1
 
-	hub.UICorner_39.Parent = hub.WalkSpeedBox_1
+	hub.UICorner_40.Parent = hub.WalkSpeedBox_1
 
 	hub.WalkSpeedSliderGroup_1.BorderSizePixel = 0
 	hub.WalkSpeedSliderGroup_1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -1260,7 +1284,7 @@ local function setGuiPropertiesOnLoad()
 	hub.WalkSpeedSlider_1.Name = "WalkSpeedSlider"
 	hub.WalkSpeedSlider_1.Parent = hub.WalkSpeedSliderGroup_1
 
-	hub.UICorner_40.Parent = hub.WalkSpeedSliderGroup_1
+	hub.UICorner_41.Parent = hub.WalkSpeedSliderGroup_1
 
 	hub.Noclip_1.BorderSizePixel = 0
 	hub.Noclip_1.Position = UDim2.new(0.802222, 0, 0.75, 0)
@@ -1276,12 +1300,12 @@ local function setGuiPropertiesOnLoad()
 	hub.Noclip_1.BackgroundTransparency = 0.9
 	hub.Noclip_1.Parent = hub.HumanoidTab_1
 
-	hub.UICorner_41.Parent = hub.Noclip_1
+	hub.UICorner_42.Parent = hub.Noclip_1
 
-	hub.UIStroke_26.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_26.Thickness = 2
-	hub.UIStroke_26.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_26.Parent = hub.Noclip_1
+	hub.UIStroke_27.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_27.Thickness = 2
+	hub.UIStroke_27.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_27.Parent = hub.Noclip_1
 
 	hub.TeleportsTab.BorderSizePixel = 0
 	hub.TeleportsTab.BackgroundColor3 = Color3.fromRGB(39, 42, 47)
@@ -1321,12 +1345,12 @@ local function setGuiPropertiesOnLoad()
 	hub.Lobby.BackgroundTransparency = 0.9
 	hub.Lobby.Parent = hub.TeleportsTab
 
-	hub.UICorner_42.Parent = hub.Lobby
+	hub.UICorner_43.Parent = hub.Lobby
 
-	hub.UIStroke_27.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_27.Thickness = 2
-	hub.UIStroke_27.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_27.Parent = hub.Lobby
+	hub.UIStroke_28.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_28.Thickness = 2
+	hub.UIStroke_28.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_28.Parent = hub.Lobby
 
 	hub.PlayerBoxMM2.TextWrapped = true
 	hub.PlayerBoxMM2.BorderSizePixel = 0
@@ -1344,7 +1368,7 @@ local function setGuiPropertiesOnLoad()
 	hub.PlayerBoxMM2.Name = "PlayerBoxMM2"
 	hub.PlayerBoxMM2.Parent = hub.TeleportsTab
 
-	hub.UICorner_43.Parent = hub.PlayerBoxMM2
+	hub.UICorner_44.Parent = hub.PlayerBoxMM2
 
 	hub.ToPlayer.TextWrapped = true
 	hub.ToPlayer.BorderSizePixel = 0
@@ -1361,15 +1385,15 @@ local function setGuiPropertiesOnLoad()
 	hub.ToPlayer.BackgroundTransparency = 0.9
 	hub.ToPlayer.Parent = hub.TeleportsTab
 
-	hub.UICorner_44.Parent = hub.ToPlayer
+	hub.UICorner_45.Parent = hub.ToPlayer
 
-	hub.UIStroke_28.Color = Color3.fromRGB(81, 88, 98)
-	hub.UIStroke_28.Thickness = 2
-	hub.UIStroke_28.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	hub.UIStroke_28.Parent = hub.ToPlayer
+	hub.UIStroke_29.Color = Color3.fromRGB(81, 88, 98)
+	hub.UIStroke_29.Thickness = 2
+	hub.UIStroke_29.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	hub.UIStroke_29.Parent = hub.ToPlayer
 
-	hub.UICorner_45.CornerRadius = UDim.new(0, 10)
-	hub.UICorner_45.Parent = hub.CanvasGroup
+	hub.UICorner_46.CornerRadius = UDim.new(0, 10)
+	hub.UICorner_46.Parent = hub.CanvasGroup
 
 	hub.PlayerList.Visible = false
 	hub.PlayerList.ZIndex = 0
@@ -1720,6 +1744,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 	local StarterGui = game:GetService("StarterGui")
 	local RunService = game:GetService("RunService")
 	local TweenS = game:GetService("TweenService")
+	local TpService = game:GetService("TeleportService")
 
 	--< Variables >--
 	local SCRIPTACTIVE = true
@@ -2855,6 +2880,10 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 	hub.Teleports_1.Cafeteria.Activated:Connect(function() teleportTo("cafeteria") end)
 	hub.Teleports_1.Kitchen.Activated:Connect(function() teleportTo("kitchen") end)
 	hub.Teleports_1.BackHall.Activated:Connect(function() teleportTo("back hall") end)
+
+	hub.RejoinButton.Activated:Connect(function()
+		TpService:Teleport(game.PlaceId, plr)
+	end)
 
 	hub.WalkSpeedBox.FocusLost:Connect(function()
 		local speed = tonumber(hub.WalkSpeedBox.Text)
