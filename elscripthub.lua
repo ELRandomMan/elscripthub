@@ -157,7 +157,13 @@ local hub =
 	UICorner_45 = Instance.new("UICorner"),
 	UIStroke_29 = Instance.new("UIStroke"),
 	UICorner_46 = Instance.new("UICorner"),
-	PlayerList = Instance.new("ScrollingFrame")
+	PlayerList = Instance.new("ScrollingFrame"),
+	CmdFrame = Instance.new("Frame"),
+	UICorner_47 = Instance.new("UICorner"),
+	CmdBox = Instance.new("TextBox"),
+	UICorner_48 = Instance.new("UICorner"),
+	Label = Instance.new("TextLabel"),
+	UICorner_49 = Instance.new("UICorner")
 }
 
 local function setGuiPropertiesOnLoad()
@@ -1406,6 +1412,51 @@ local function setGuiPropertiesOnLoad()
 	hub.PlayerList.Name = "PlayerList"
 	hub.PlayerList.Position = UDim2.new(0, 712, 0, 606)
 	hub.PlayerList.Parent = hub.elGui
+
+	hub.CmdFrame.BorderSizePixel = 0
+	hub.CmdFrame.BackgroundColor3 = Color3.fromRGB(47, 50, 56)
+	hub.CmdFrame.Size = UDim2.new(0, 600, 0, 60)
+	hub.CmdFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	hub.CmdFrame.Visible = false
+	hub.CmdFrame.Name = "CmdFrame"
+	hub.CmdFrame.Position = UDim2.new(0, 512, 0, 1044)
+	hub.CmdFrame.ZIndex = 0
+	hub.CmdFrame.Parent = hub.elGui
+
+	hub.UICorner_47.CornerRadius = UDim.new(0, 10)
+	hub.UICorner_47.Parent = hub.CmdFrame
+
+	hub.CmdBox.BorderSizePixel = 0
+	hub.CmdBox.PlaceholderColor3 = Color3.fromRGB(116, 125, 132)
+	hub.CmdBox.Position = UDim2.new(0, 0, 0.5, 0)
+	hub.CmdBox.BackgroundColor3 = Color3.fromRGB(42, 45, 50)
+	hub.CmdBox.FontFace = Font.new("rbxasset://fonts/families/RobotoMono.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+	hub.CmdBox.PlaceholderText = "Cmds here..."
+	hub.CmdBox.TextSize = 20
+	hub.CmdBox.Size = UDim2.new(0, 500, 0, 30)
+	hub.CmdBox.TextColor3 = Color3.fromRGB(178, 178, 178)
+	hub.CmdBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	hub.CmdBox.Text = ""
+	hub.CmdBox.Name = "CmdBox"
+	hub.CmdBox.Parent = hub.CmdFrame
+
+	hub.UICorner_48.CornerRadius = UDim.new(0, 10)
+	hub.UICorner_48.Parent = hub.CmdBox
+
+	hub.Label.BorderSizePixel = 0
+	hub.Label.BackgroundColor3 = Color3.fromRGB(47, 50, 56)
+	hub.Label.FontFace = Font.new("rbxasset://fonts/families/RobotoMono.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+	hub.Label.Position = UDim2.new(0.833333, 0, 0.483333, 0)
+	hub.Label.Name = "Label"
+	hub.Label.TextSize = 20
+	hub.Label.Size = UDim2.new(0, 100, 0, 31)
+	hub.Label.TextColor3 = Color3.fromRGB(171, 171, 171)
+	hub.Label.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	hub.Label.Text = "Cmd Box"
+	hub.Label.Parent = hub.CmdFrame
+
+	hub.UICorner_49.CornerRadius = UDim.new(0, 10)
+	hub.UICorner_49.Parent = hub.Label
 	
 	hub.elGui.Parent = game.Players.LocalPlayer.PlayerGui
 end
@@ -1689,16 +1740,18 @@ task.spawn(function()
     
 	local UserInputService = game:GetService("UserInputService")
 
-	local function enableDragging(gui, gui2)
+	local function enableDragging(gui, gui2, gui3)
 		local dragging
 		local dragStartPos
 		local startPos
 		local startPos2
+		local startPos3
 
 		local function updateDrag(input)
 			local delta = input.Position - dragStartPos
 			gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 			gui2.Position = UDim2.new(startPos2.X.Scale, startPos2.X.Offset + delta.X, startPos2.Y.Scale, startPos2.Y.Offset + delta.Y)
+			gui3.Position = UDim2.new(startPos3.X.Scale, startPos3.X.Offset + delta.X, startPos3.Y.Scale, startPos3.Y.Offset + delta.Y)
 		end
 
 		WindowBar.InputBegan:Connect(function(input)
@@ -1708,6 +1761,7 @@ task.spawn(function()
 				dragStartPos = input.Position
 				startPos = gui.Position
 				startPos2 = gui2.Position
+				startPos3 = gui3.Position
 				input.Changed:Connect(function()
 					if input.UserInputState == Enum.UserInputState.End then
 						dragging = false
@@ -1733,7 +1787,52 @@ task.spawn(function()
 
 	local gui = CanvasGroup
 	local gui2 = hub.PlayerList
-	enableDragging(gui, gui2)
+	local gui3 = hub.CmdFrame
+	enableDragging(gui, gui2, gui3)
+
+	---< CMD FRAME >---
+	local toggled = false
+	local tweening2 = false
+	local cmdFrame = hub.CmdFrame
+	UIS.InputBegan:Connect(function(input, typing)
+		if typing then return end
+		if tweening2 then return end
+		local pos = UDim2.fromOffset(cmdFrame.Position.X.Offset, cmdFrame.Position.Y.Offset)
+		if input.KeyCode == Enum.KeyCode.Semicolon then
+			if toggled then
+				cmdFrame.CmdBox:CaptureFocus()
+			else
+				cmdFrame.Visible = true
+				tweening2 = true
+				toggled = true
+				pos += UDim2.fromOffset(0, 30)
+				local tween2 = TweenS:Create(cmdFrame, TweenInfo.new(0.2, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {Position = pos})
+				cmdFrame.CmdBox:CaptureFocus()
+				tween2:Play()
+				tween2.Completed:Wait()
+				tweening2 = false
+			end
+		end
+	end)
+
+	local function sendCmd(i)
+		if tweening2 then
+			repeat task.wait() until not tweening2
+		end
+		local pos = UDim2.fromOffset(cmdFrame.Position.X.Offset, cmdFrame.Position.Y.Offset)
+		tweening2 = true
+		toggled = false
+		pos -= UDim2.fromOffset(0, 30)
+		local tween1 = TweenS:Create(cmdFrame, TweenInfo.new(0.2, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {Position = pos})
+		tween1:Play()
+		tween1.Completed:Wait()
+		tweening2 = false
+		cmdFrame.Visible = false
+	end
+
+	cmdFrame.CmdBox.FocusLost:Connect(function(enter)
+		sendCmd()
+	end)
 end)
 
 
@@ -1776,6 +1875,16 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 		"isa_vigevani579",
         "anheeeff2",
 		"TAYJOHNSOCOOL11"
+	}
+	local cmds = {
+		"killaura",--Kill Cmds
+		"ka",
+		"kill",
+		"k",
+		"loopkill",
+		"lk",
+		"unloopkill",
+		"unlk"
 	}
 	local killAura = false
 	local loopKill = true
@@ -2870,8 +2979,92 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 		end
 	end
 
+	local function fireCmd(cmd, pl)
+		local plr = ""
+		if pl then
+			if findPlayer(pl) then plr = select(2, findPlayer(pl)) else Toast("Cmds", "Invalid player/not in game", ImageIds.Error, 5) end
+		end
+
+		--{ COMMANDS }--
+		if cmd == "lk" or cmd == "loopkill" then --loopkill
+           	local player = string.lower(plr)
+            table.insert(lkList, player)
+            if table.find(lkList, player) then 
+				updatePlr()
+                Toast("Loop Kill 💥", player.." added", ImageIds.Success, 5)
+            else
+                Toast("Loop Kill 💥", player.." not added", ImageIds.Error, 5)
+            end
+		end
+		if cmd == "unlk" or cmd == "unloopkill" then
+			local player = string.lower(plr)
+			if table.find(lkList, player) then
+				table.remove(lkList, table.find(lkList, player))
+			else
+				Toast("Loop Kill 💥", "Player not in list/Empty field", ImageIds.Yield, 5)
+				coroutine.wrap(function()
+					hub.PlayerInfo.Text = "No Player"
+					task.wait(1)
+					hub.PlayerInfo.Text = "LK List"
+				end)()
+				return
+			end 
+			if not table.find(lkList, player) then 
+				updatePlr()
+				Toast("Loop Kill 💥", player.." removed", ImageIds.Success, 5)
+			else
+				Toast("Loop Kill 💥", player.." not removed", ImageIds.Error, 5)
+			end
+		end
+
+		if cmd == "k" or cmd == "kill" then --kill player
+			if findPlayer(plr) then 
+				local player = select(2, findPlayer(plr))
+				killPlayer(player)
+			else
+				Toast("Kill Player 💥", "Player not found... :(", ImageIds.Yield, 5)
+			end
+		end
+
+		if cmd == "ka" or cmd == "killaura" then
+			if killAura == false then
+				hub.KillAura.UIStroke.Enabled = true
+				killAura = true
+				Toast("Kill Aura", "Kill aura activated", ImageIds.Active, 5)
+				killAuraFunc()
+			else
+				hub.KillAura.UIStroke.Enabled = false
+				killAura = false
+				Toast("Kill Aura", "Kill aura deactivated", ImageIds.Inactive, 5)
+			end
+		end
+	end
+
+	local function checkCmd(cmd)
+		cmd = string.gsub(cmd, ";", "")
+		for i,v in cmds do
+			local cmdL = string.split(cmd, " ")
+			if cmdL[1] == v then
+				fireCmd(v, cmdL[2])
+				return
+			end
+		end
+		Toast("Cmds", "Command not found :/", ImageIds.Error, 5)
+	end
+
 
 	--< Gui Activated Events >--
+
+		--{ CMD BOX >--
+	hub.CmdFrame.CmdBox.FocusLost:Connect(function(enter)
+		if enter then
+			local cmd = hub.CmdFrame.CmdBox.Text
+			cmd = string.lower(cmd)
+			checkCmd(cmd)
+		end
+	end)
+
+		--{ Teleports Buttons }--
 	hub.Teleports_1.Nexus.Activated :Connect(function() teleportTo("nexus") end)
 	hub.Teleports_1.Cells.Activated:Connect(function() teleportTo("cells") end)
 	hub.Teleports_1.Yard.Activated:Connect(function() teleportTo("yard") end)
