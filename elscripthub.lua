@@ -1884,7 +1884,32 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 		"loopkill",
 		"lk",
 		"unloopkill",
-		"unlk"
+		"unlk",
+		"to", --tp location
+		"goto", --tp player
+		"spin", --Humanoid events
+		"fling",
+		"unfling",
+		"antifling",
+		"unantifling",
+		"antif",
+		"unantif",
+		"noclip",
+		"clip",
+		"fly",
+		"unfly",
+		"rejoin",
+		"rj"
+	}
+	local locations = {
+		"nexus",
+		"cells",
+		"yard",
+		"criminal base",
+		"guards room",
+		"cafeteria",
+		"kitchen",
+		"back hall"
 	}
 	local killAura = false
 	local loopKill = true
@@ -2951,6 +2976,41 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 		end
 	end
 
+	local function noclipFunc()
+		Toggles.Noclipping = not Toggles.Noclipping
+		
+        if Toggles.Noclipping == true then
+            Toast("Noclipping 📎", "Activated", ImageIds.Active, 5)
+            hub.Noclip.UIStroke.Enabled = true
+            coroutine.wrap(function()
+                while Toggles.Noclipping do
+                    if Toggles.Noclipping then
+                        for i,v in plr.Character:GetDescendants() do
+                            if v:IsA("BasePart") then
+                                if v.CanCollide == true then
+                                    v.CanCollide = false
+                                    Toggles.Noclipping = true
+                                end
+                            end
+                        end
+                    end
+                    task.wait()
+                end
+            end)()
+        else
+            Toast("Noclipping 📎", "Deactivated", ImageIds.Inactive, 5)
+            hub.Noclip.UIStroke.Enabled = false
+            for i,v in plr.Character:GetDescendants() do
+                if v:IsA("BasePart") then
+                    if v.Name == "HumanoidRootPart" or v.Name == "UpperTorso" or v.Name == "LowerTorso" then
+                        v.CanCollide = true
+                        Toggles.Noclipping = false
+                    end
+                end
+            end
+        end
+	end
+
 	--< Function Pcalls >--
 	local waitTime = 5
 	local function checkLK()
@@ -2979,14 +3039,14 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 		end
 	end
 
-	local function fireCmd(cmd, pl)
+	local function fireCmd(cmd, cmd2, cmd3)
 		local plr = ""
-		if pl then
-			if findPlayer(pl) then plr = select(2, findPlayer(pl)) else Toast("Cmds", "Invalid player/not in game", ImageIds.Error, 5) end
-		end
 
-		--{ COMMANDS }--
-		if cmd == "lk" or cmd == "loopkill" then --loopkill
+		--{ KILL EVENTS }--
+		if cmd == "lk" or cmd == "loopkill" then -- Loopkill --
+			if cmd2 then
+				if findPlayer(cmd2) then plr = select(2, findPlayer(cmd2)) else Toast("Cmds", "Invalid player/not in game", ImageIds.Error, 5) return end
+			end
            	local player = string.lower(plr)
             table.insert(lkList, player)
             if table.find(lkList, player) then 
@@ -2997,6 +3057,9 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
             end
 		end
 		if cmd == "unlk" or cmd == "unloopkill" then
+			if cmd2 then
+				if findPlayer(cmd2) then plr = select(2, findPlayer(cmd2)) else Toast("Cmds", "Invalid player/not in game", ImageIds.Error, 5) return end
+			end
 			local player = string.lower(plr)
 			if table.find(lkList, player) then
 				table.remove(lkList, table.find(lkList, player))
@@ -3017,7 +3080,10 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 			end
 		end
 
-		if cmd == "k" or cmd == "kill" then --kill player
+		if cmd == "k" or cmd == "kill" then -- Kill player --
+			if cmd2 then
+				if findPlayer(cmd2) then plr = select(2, findPlayer(cmd2)) else Toast("Cmds", "Invalid player/not in game", ImageIds.Error, 5) return end
+			end
 			if findPlayer(plr) then 
 				local player = select(2, findPlayer(plr))
 				killPlayer(player)
@@ -3026,7 +3092,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 			end
 		end
 
-		if cmd == "ka" or cmd == "killaura" then
+		if cmd == "ka" or cmd == "killaura" then -- KILL AURA -- 
 			if killAura == false then
 				hub.KillAura.UIStroke.Enabled = true
 				killAura = true
@@ -3038,6 +3104,129 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 				Toast("Kill Aura", "Kill aura deactivated", ImageIds.Inactive, 5)
 			end
 		end
+
+		--{ HUMANOID EVENTS }--
+		if cmd == "spin" then
+			Toggles.Spin = not Toggles.Spin
+			if Toggles.Spin == true then
+				spin()
+				hub.Spin.UIStroke.Enabled = true
+				Toast("Spin", "Activated", ImageIds.Active, 5)
+			else
+				hub.Spin.UIStroke.Enabled = false
+				local rot1, rotY, rot3 = workspace.CurrentCamera.CFrame:ToEulerAnglesYXZ()
+				print(math.deg(rotY))
+				plr.Character.HumanoidRootPart.CFrame = CFrame.Angles(0,(rotY)-0.2, 0) + plr.Character.HumanoidRootPart.Position
+				Toast("Spin", "Deactivated", ImageIds.Inactive, 5)
+			end
+		end
+
+		if cmd == "fling" then
+			if Toggles.Fling == false then
+				Toggles.Fling = not Toggles.Fling
+				fling()
+				hub.Fling.UIStroke.Enabled = true
+				Toast("Fling", "Activated", ImageIds.Active, 5)
+			else
+				Toast("Fling", "Already on", ImageIds.Yield, 5)
+			end
+		end
+
+		if cmd == "unfling" then
+			if Toggles.Fling == true then
+				Toggles.Fling = not Toggles.Fling
+				hub.Fling.UIStroke.Enabled = false
+				Toast("Fling", "Deactivated", ImageIds.Inactive, 5)
+			else
+				Toast("Fling", "Already off", ImageIds.Yield, 5)
+			end
+		end
+
+		if cmd == "noclip" then
+			if Toggles.Noclipping == false then
+				noclipFunc()
+			else
+				Toast("Noclip", "Already on", ImageIds.Yield, 5)
+			end
+		end
+
+		if cmd == "clip" then
+			if Toggles.Noclipping == true then
+				noclipFunc()
+			else
+				Toast("Noclip", "Already off", ImageIds.Yield, 5)
+			end
+		end
+
+		if cmd == "fly" then
+			if Flying == false then
+				hub.Fly.UIStroke.Enabled = true
+				toggleFly()
+			else
+				Toast("Fly", "Already flying", ImageIds.Yield, 5)
+			end
+			return
+		end
+
+		if cmd == "unfly" then
+			if Flying == true then
+				hub.Fly.UIStroke.Enabled = false
+				toggleFly()
+				Flying = false
+			else
+				Toast("Fly", "Already grounded", ImageIds.Yield, 5)
+			end
+			return
+		end
+
+		if cmd == "antifling" or cmd == "antif" then
+			if antying == false then
+				Toast("Anti-fling", "Activated", ImageIds.Active, 5)
+				hub.AntiFling.UIStroke.Enabled = true
+				toggleAntiFling()
+			else 
+				Toast("Anti-fling", "Already active", ImageIds.Yield, 5)
+			end
+			return
+		end
+
+		if cmd == "unantifling" or cmd == "unantif" then
+			if antying == true then
+				Toast("Anti-fling", "Deactivated", ImageIds.Inactive, 5)
+				hub.AntiFling.UIStroke.Enabled = false
+				antying = false
+			else
+				Toast("Anti-fling", "Already inactive", ImageIds.Yield, 5)
+			end
+			return
+		end
+
+		--{ OTHER EVENTS }--
+		if cmd == "rejoin" or cmd == "rj" then
+			TpService:Teleport(game.PlaceId, Players.LocalPlayer)
+		end
+
+		--{ TELEPORTS EVENTS }--
+		if cmd == "to" then -- Teleport to --
+			if cmd2 == "nexus" then teleportTo("nexus") return end
+			if cmd2 == "cells" then teleportTo("cells") return end
+			if cmd2 == "yard" then teleportTo("yard") return end
+			if cmd2 == "criminal" and cmd3 == "base" or cmd2 == "crim" and cmd3 == "base" then teleportTo("criminal base") return end
+			if cmd2 == "guards" and cmd3 == "room" then teleportTo("guards room") return end
+			if cmd2 == "cafeteria" then teleportTo("cafeteria") return end
+			if cmd2 == "kitchen" then teleportTo("kitchen") return end
+			if cmd2 == "back" and cmd3 == "hall" then teleportTo("back hall") return end
+			Toast("Teleports", "Invalid location❌", ImageIds.Error, 5)
+		end
+
+		if cmd == "goto" then -- Teleport to Player --
+			if cmd2 then
+				if findPlayer(cmd2) then plr = select(2, findPlayer(cmd2)) else Toast("Cmds", "Invalid player/not in game", ImageIds.Error, 5) return end
+			end
+			Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Players[plr].Character.HumanoidRootPart.CFrame
+			Toast("Cmds", "Teleported to: "..plr, ImageIds.Success, 5)
+			return
+		end
 	end
 
 	local function checkCmd(cmd)
@@ -3045,7 +3234,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 		for i,v in cmds do
 			local cmdL = string.split(cmd, " ")
 			if cmdL[1] == v then
-				fireCmd(v, cmdL[2])
+				fireCmd(v, cmdL[2], cmdL[3])
 				return
 			end
 		end
@@ -3207,38 +3396,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 	end)
 
 	hub.Noclip.Activated:Connect(function()
-        Toggles.Noclipping = not Toggles.Noclipping
-		
-        if Toggles.Noclipping == true then
-            Toast("Noclipping 📎", "Activated", ImageIds.Active, 5)
-            hub.Noclip.UIStroke.Enabled = true
-            coroutine.wrap(function()
-                while Toggles.Noclipping do
-                    if Toggles.Noclipping then
-                        for i,v in plr.Character:GetDescendants() do
-                            if v:IsA("BasePart") then
-                                if v.CanCollide == true then
-                                    v.CanCollide = false
-                                    Toggles.Noclipping = true
-                                end
-                            end
-                        end
-                    end
-                    task.wait()
-                end
-            end)()
-        else
-            Toast("Noclipping 📎", "Deactivated", ImageIds.Inactive, 5)
-            hub.Noclip.UIStroke.Enabled = false
-            for i,v in plr.Character:GetDescendants() do
-                if v:IsA("BasePart") then
-                    if v.Name == "HumanoidRootPart" or v.Name == "UpperTorso" or v.Name == "LowerTorso" then
-                        v.CanCollide = true
-                        Toggles.Noclipping = false
-                    end
-                end
-            end
-        end
+		noclipFunc()
 	end)
 
 	hub.Fly.Activated:Connect(function()
