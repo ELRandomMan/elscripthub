@@ -1864,6 +1864,7 @@ if game.Name == "Prison Life" or game.PlaceId == 155615604 then
 		"ELRandomDude",
 		"ELRandomGuy",
 		"pwurplejuice",
+		"4SUKUNA_ITADORI",
 		"2x5eq",
 		"youbetterhideyokidss",
 		"flowerccs0",
